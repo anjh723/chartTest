@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 
 import com.lg.dx.netty.server.NettySocketServer;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class NettyController {
 
@@ -24,6 +27,7 @@ public class NettyController {
                     nettySocketServer.run();
                 } catch (Exception e) {
                     e.printStackTrace();
+                    log.error(e.toString());
                 }
             }
 
