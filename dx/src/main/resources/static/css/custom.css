@@ -1,0 +1,643 @@
+/*------------------------------------------------------------------
+    File Name: custom.css
+-------------------------------------------------------------------*/
+
+/** ADD YOUR AWESOME CODES HERE **/
+
+
+#DQMS__no div {
+    justify-content: flex-end;
+}
+
+#DQMS__no__input {
+    margin-right: 92px;
+}
+
+.form_tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 100%;
+    height: 40px;
+}
+
+.div__input {
+    display: flex;
+    justify-content: flex-end;
+    width: 33.33333%;
+    height: 30px;
+    line-height: 30px;
+}
+
+.div__input label {
+}
+
+.div__input input {
+    width: 180px;
+    margin-left: 10px;
+}
+
+.div__input select {
+    width: 180px;
+    margin-left: 10px;
+}
+
+.search_tab {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.div__input__btn {
+    padding: 0 0 0 10px;
+}
+
+.div__input__btn button {
+    width: 135px;
+    height: 30px;
+    border: gray solid 1px;
+    border-radius: 5px;
+}
+
+.div__input__btn button:hover {
+
+}
+
+#data__search__btn {
+    background: #6cd283;
+}
+
+#data__search__reset {
+    background: rgba(255, 0, 0, 0.71);
+}
+
+#data__search__btn:hover {
+    background: gray;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+#data__search__reset:hover {
+    background: gray;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.search__date__form {
+    display: flex;
+    justify-content: center;
+}
+
+.search__date__form input[type="date"] {
+    text-align: center;
+}
+
+.search__date__form label {
+    height: 30px;
+    line-height: 30px;
+}
+
+.search__date__form input {
+    width: 180px;
+    height: 30px;
+    margin-left: 13px;
+}
+
+#search__date__form__to {
+    margin-right: 52px;
+}
+
+
+.search_icon {
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 2px;
+}
+
+.async_manage {
+    display: flex;
+    width: 350px;
+    height: 30px;
+    float: left;
+    background: rgba(189, 192, 194, 0.65);
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.async_manage_btn {
+    font-family: 'twayair';
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+    margin-left: 5px;
+    border: 0.5px solid gray;
+    border-radius: 30px;
+}
+
+.async_active {
+    background: #2abbed;
+}
+
+.async_manage_btn:hover {
+    cursor: pointer;
+}
+
+.async_manage label {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: black;
+    height: 30px;
+    line-height: 30px;
+}
+
+#async_status {
+    margin-bottom: 0;
+}
+
+#async_setting_btn {
+    font-size: 20px;
+}
+
+#async_refresh {
+    font-family: 'twayair';
+    width: 60px;
+    height: 30px;
+    padding: 5px;
+    cursor: pointer;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#async_refresh:hover {
+    background: #2abbed;
+    transition-duration: 0.2s;
+}
+
+.DQMS__btns {
+    height: 50px;
+    float: right;
+}
+
+.DQMS__btns button {
+    width: 135px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.DQMS__btns button:hover {
+    width: 135px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: gray;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+#DQMS__btns__monitoring {
+
+}
+
+#DQMS__btns__request {
+
+}
+
+#DQMS__btns__view_modify {
+
+}
+
+#DQMS__btns__add_delete {
+
+}
+
+#DQMS__btns__create {
+
+}
+
+.fa-arrow-right {
+    color: dodgerblue;
+}
+
+
+.system_manage_icon {
+    color: burlywood;
+}
+
+.system_manage_form {
+    width: 100%;
+    height: 600px;
+}
+
+.system_manage_form form {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.system_manage_form form label {
+    padding: 20px;
+}
+
+.system_manage_tab {
+    width: 100%;
+    height: 225px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.system_manage_tab_content {
+    width: 80%;
+    height: 100%;
+    float: left;
+    padding: 15px;
+}
+
+#system_manage_tab_btns__first {
+    justify-content: center;
+}
+
+.system_manage_tab_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 20%;
+    height: 100%;
+    float: left;
+    border-left: solid 1px gray;
+    padding: 10px;
+}
+
+.system_manage_tab_btn button {
+    width: 200px;
+    height: 40px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#system_manage_power_btn {
+    width: 40px;
+    height: 40px;
+    color: red;
+}
+
+.system_manage_tab_btn button:hover {
+    background: #2abbed;
+    color: whitesmoke;
+}
+
+#system_manage_file_upload {
+    display: none;
+}
+
+#system_manage_file_upload_label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#system_manage_file_upload_label:hover {
+    cursor: pointer;
+    background: #2abbed;
+    color: white;
+}
+
+.testLab_form {
+    width: 100%;
+    height: 600px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    overflow-y: hidden;
+}
+
+.testLab_locate_form_tab {
+    height: 40px;
+    background: #15283c;
+    color: white;
+}
+
+.testLab_locate_form_tab:nth-child(1) {
+    width: 50%;
+    float: left;
+}
+
+.testLab_locate_form_tab:nth-child(2) {
+    width: 33.333333%;
+    float: left;
+}
+
+.testLab_locate_form_tab:nth-child(3) {
+    width: 16.666666%;
+    float: left;
+}
+
+.testLab_locate_form_tab a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid gray;
+    color: whitesmoke;
+}
+
+.testLab_locate_form_tab a:hover {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid gray;
+    color: whitesmoke;
+    background: #b9dcff;
+}
+
+.testLab_locate_form_tab a :hover {
+    background-color: #0d95e8;
+    color: whitesmoke;
+}
+
+.testLab_room_form_tab {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.testLab_select_room {
+    width: 100%;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.testLab_select_room_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    border: 1px solid gray;
+    background: #15283c;
+    color: whitesmoke;
+}
+
+.testLab_select_room_btn:hover {
+    background: #b9dcff;
+    color: whitesmoke;
+}
+
+.testLab_select_chamber {
+    width: 100%;
+    height: auto;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    border: 1px solid gray;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.testLab_select_chamber a:nth-child(2n) {
+    background: rgba(128, 128, 128, 0.35);
+    color: #0f0f10;
+}
+
+.testLab_select_chamber a:hover {
+    background: #f5cb8d;
+}
+
+
+.testLab_chamber {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid gray;
+    display: block;
+}
+
+.testLab_chamber:hover {
+    background-color: #f5cb8d;
+}
+
+.fa {
+    font-size: 15px;
+}
+
+.fa-mail-forward {
+    color: #C9BA9B;
+}
+
+.fa-exclamation-circle {
+    color: #ff6a6a;
+}
+
+@import "https://code.highcharts.com/css/highcharts.css";
+
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+.highcharts-yaxis .highcharts-axis-line {
+    stroke-width: 2px;
+}
+
+/* Link the series colors to axis colors */
+.highcharts-color-0 {
+    fill: #7cb5ec;
+    stroke: #7cb5ec;
+}
+
+.highcharts-axis.highcharts-color-0 .highcharts-axis-line {
+    stroke: #7cb5ec;
+}
+
+.highcharts-axis.highcharts-color-0 text {
+    fill: #7cb5ec;
+}
+
+.highcharts-color-1 {
+    fill: #90ed7d;
+    stroke: #90ed7d;
+}
+
+.highcharts-axis.highcharts-color-1 .highcharts-axis-line {
+    stroke: #90ed7d;
+}
+
+.highcharts-axis.highcharts-color-1 text {
+    fill: #90ed7d;
+}
+
+#bulletin table thead td {
+    background: rgba(0, 0, 0, 0.28);
+    /*background-color: rgba(0, 0, 0, 0.28);*/
+}
+
+#analysis_search_form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#analysis_search_form button {
+    width: 80px;
+    height: 40px;
+    margin-left: 10px;
+    border-radius: 5px;
+    color: gray;
+}
+
+#analysis_search_form button:hover {
+    color: #ffffff;
+    background-color: #0ea432;
+    cursor: pointer;
+}
+
+.pagenation_button_form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    justify-content: end;
+    height: 40px;
+    /*border: 2px solid #c7c7cc;*/
+    padding: 22px 20px;
+    border-radius: 5px;
+}
+
+.question__btn__div {
+    width: 63%;
+    height: 40px;
+    float: right;
+}
+
+.question__btn__div a {
+    width: 200px;
+    height: 40px;
+    float: right;
+    text-align: center;
+    line-height: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.bulletin-form {
+    width: 100%;
+    height: auto;
+}
+
+.bulletin-field {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0px 20px;
+}
+
+.bulletin-field h2 {
+    padding: 15px;
+    border-bottom: 1px solid #c7c7cc;
+}
+
+.bulletin-field-label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0px;
+    height: auto;
+    margin: 0;
+}
+
+#bulletin_field_text {
+    width: 100%;
+    height: 30px;
+
+}
+
+#bulletin_field_textarea {
+    width: 100%;
+    height: 400px;
+}
+
+.bulletin-field-form-btns {
+    margin: 10px;
+}
+
+.bulletin-field-form-btns button {
+    margin: 10px;
+}
+
+#bulletin_field_textarea-readonly {
+    border: 1px solid #c7c7cc;
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+    padding: 25px;
+}
+
+.pagination-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/commons::header">
+</head>
+<body class="dashboard dashboard_1">
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <nav th:replace="/fragments/commons::sidebar"></nav>
+        <!-- end sidebar -->
+        <!-- right content -->
+        <div id="content">
+            <!-- topbar -->
+            <div th:replace="/fragments/commons::topbar"></div>
+            <!-- end topbar -->
+            <!-- content start -->
+            <div class="midde_cont">
+                <div class="container-fluid">
+                    <!-- title start -->
+                    <div class="row column_title">
+                        <div class="col-md-12">
+                            <div class="page_title">
+                                <h2>Data Manage</h2>
+                            </div>
+                            <!--inner content start-->
+                            <div class="container">
+                                <div>
+                                    <form class="search__form">
+                                        <!-- Search Form Tab - 1-->
+                                        <div class="search__form__tab">
+
+                                            <!-- Attribute - 1-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>To</label>
+                                                    <input type="date" class="search__form__attribute__input">
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 2-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Requester</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>채성봉</option>
+                                                        <option>홍길동</option>
+                                                        <option>강감찬</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 3-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Event</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>PP</option>
+                                                        <option>RR</option>
+                                                        <option>PR</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 4-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Test Room</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>(개발 창원)인정시험실</option>
+                                                        <option>(개발 창원)소음시험실</option>
+                                                        <option>(개발 창원)신뢰성시험실</option>
+                                                        <option>(창원)선행개발시험실</option>
+                                                        <option>(선행)창원소음시험실</option>
+                                                        <option>(가산)선행시험실</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - end-->
+
+                                        </div>
+                                        <!-- Search Form Tab - 2-->
+                                        <div class="search__form__tab">
+                                            <!-- Attribute - 1-->
+
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>From</label>
+                                                    <input type="date" class="search__form__attribute__input">
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 2-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Part</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>Development</option>
+                                                        <option>inspection</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 3-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Status</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>CW</option>
+                                                        <option>US</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 4-->
+                                            <div class="search__form__attribute">
+                                                <div>
+<!--                                                    <label> </label>-->
+<!--                                                    <input type="text" class="search__form__attribute__input">-->
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - end-->
+                                        </div>
+
+                                        <!-- Search Form Tab - 3-->
+                                        <div class="search__form__tab">
+                                            <!-- Attribute - 1-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Request_NO</label>
+                                                    <input type="text" class="search__form__attribute__input">
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 2-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Product</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>REF</option>
+                                                        <option>WAR</option>
+                                                        <option>FER</option>
+                                                        <option>COO</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 3-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Test Type</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>Approval Test</option>
+                                                        <option>Pre Evaluation</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 4-->
+                                            <div class="search__form__attribute">
+                                                <div>
+<!--                                                    <label>&nbsp</label>-->
+<!--                                                    <input type="text" class="search__form__attribute__input">-->
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - end-->
+                                        </div>
+                                        <!-- Search Form Tab - 4 -->
+                                        <div class="search__form__tab">
+                                            <!-- Attribute - 1-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>DQMS_NO</label>
+                                                    <input type="text" class="search__form__attribute__input">
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 2-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Model</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>Signature BF</option>
+                                                        <option>Signautre CF</option>
+                                                        <option>Signature FF</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 3-->
+                                            <div class="search__form__attribute">
+                                                <div>
+                                                    <label>Test Item</label>
+                                                    <select type="text" class="search__form__attribute__input">
+                                                        <option>주위온도변화</option>
+                                                        <option>에너지시험</option>
+                                                        <option>냉강력시험</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - 4-->
+                                            <div class="search__form__attribute">
+                                                <div>
+<!--                                                    <label> </label>-->
+<!--                                                    <input type="text" class="search__form__attribute__input">-->
+                                                </div>
+                                            </div>
+                                            <!-- Attribute - end-->
+                                        </div>
+                                        <!-- Search Form Tab - End -->
+                                    </form>
+                                </div>
+                                <div class="search_tab">
+                                    <div class="div__input__btn">
+                                        <button id="data__search__btn">
+                                            Search
+                                        </button>
+                                        <button id="data__search__reset">
+                                            Reset
+                                        </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="async_manage">
+                                        <label>실시간</label>
+                                        <button class="async_manage_btn">
+                                            OFF
+                                        </button>
+                                        <p id="async_status">최근 10분 /
+                                            10초 주기</p>
+                                        <a href="#"
+                                           id="async_setting_btn"> <i
+                                                aria-hidden="true"
+                                                class="fa fa-cog"></i></a>
+                                        <button id="async_refresh">
+                                            새로고침
+                                        </button>
+                                    </div>
+                                    <div class="DQMS__btns">
+                                        <button id="DQMS__btns__monitoring"
+                                                type="button">Monitoring
+                                        </button>
+                                        <button id="DQMS__btns__request"
+                                                type="button">New
+                                            Request
+                                        </button>
+                                        <button id="DQMS__btns__view_modify"
+                                                type="button">View /
+                                            Modify
+                                        </button>
+                                        <button id="DQMS__btns__add_delete"
+                                                type="button">Add /
+                                            Delete
+                                        </button>
+                                        <button id="DQMS__btns__create"
+                                                type="button">Create
+                                            Test SEQ.
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- title end -->
+                            <!--inner content start-->
+
+
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped table-bordered text-center">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th>No</th>
+                                        <th><input type="checkbox"></th>
+                                        <th>Request No.</th>
+                                        <th>Test Type</th>
+                                        <th>Test Item</th>
+                                        <th>Test Room</th>
+                                        <th>Event</th>
+                                        <th>Project</th>
+                                        <th>Requester</th>
+                                        <th>Req.</th>
+                                        <th>Model</th>
+                                        <th>Run Test</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><input type="radio"
+                                                   class="isRadio_selected">
+                                        </td>
+                                        <td>CWREF~111111~</td>
+                                        <td>Approval Test</td>
+                                        <td>주위온도변동</td>
+                                        <td>#1</td>
+                                        <td>PP</td>
+                                        <td>LGP-Test</td>
+                                        <td>채성봉</td>
+                                        <td>1</td>
+                                        <td>Signature BF</td>
+                                        <td>RUN &nbsp;&nbsp;<a href="#"><i
+                                                class="fa fa-arrow-right"
+                                                aria-hidden="true"></i></a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td><input type="radio"
+                                                   class="isRadio_selected">
+                                        </td>
+                                        <td>CWREF~111111~</td>
+                                        <td>Approval Test</td>
+                                        <td>에너지시험</td>
+                                        <td>#1</td>
+                                        <td>PP</td>
+                                        <td>LGP-Test</td>
+                                        <td>채성봉</td>
+                                        <td>1</td>
+                                        <td>Signature BF</td>
+                                        <td>Testing &nbsp;&nbsp;<a href="#"><i
+                                                class="fa fa-mail-forward"
+                                                aria-hidden="true"></i></a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>3</td>
+                                        <td><input type="radio"
+                                                   class="isRadio_selected">
+                                        </td>
+                                        <td>CWREF~111111~</td>
+                                        <td>Approval Test</td>
+                                        <td>소음시험</td>
+                                        <td>#1</td>
+                                        <td>PP</td>
+                                        <td>LGP-Test</td>
+                                        <td>채성봉</td>
+                                        <td>1</td>
+                                        <td>Signature BF</td>
+                                        <td>Complete &nbsp;&nbsp;<a href="#"><i
+                                                class="fa fa-exclamation-circle"
+                                                aria-hidden="true"></i></a></td>
+                                    </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                            <style>
+                                #monitoring_show {
+                                    width: 100%;
+                                    height: 600px;
+                                }
+                            </style>
+                            <div id="monitoring_show"></div>
+
+                        </div>
+
+                        <!--inner content end-->
+                    </div>
+                    <!-- content end -->
+                    <!-- footer -->
+                    <div th:replace="/fragments/commons::footer"></div>
+                </div>
+
+                <!-- end dashboard inner -->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<div th:replace="/fragments/commons::script"></div>
+
+<script>
+    let asyncBtn = document.querySelector('.async_manage_btn');
+    asyncBtn.addEventListener('click', () => {
+        asyncBtn.classList.toggle('async_active')
+        let active = asyncBtn.classList.contains('async_active');
+
+        if (active) {
+            asyncBtn.innerText = 'ON';
+        } else {
+            asyncBtn.innerText = 'OFF';
+        }
+    })
+</script>
+
+<script>
+    let isSelected = document.querySelectorAll('.isRadio_selected');
+    isSelected.forEach((e) => {
+
+        e.addEventListener('click', (obj) => {
+            obj.target.checked = true
+
+            isSelected.forEach((j) => {
+
+                if (obj.target !== j) {
+                    j.checked = false;
+                }
+
+            })
+
+        })
+
+    })
+</script>
+
+</html>

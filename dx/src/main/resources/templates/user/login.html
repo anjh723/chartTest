@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/commons::header"></head>
+<body class="inner_page login">
+<div class="full_container">
+	<div class="container">
+		<div class="center verticle_center full_height">
+			<div class="login_section">
+				<div class="logo_login">
+					<div class="center">
+						<img alt="#" src="images/logo/logo.png" width="210"/>
+					</div>
+				</div>
+				<div class="login_form">
+					<form th:action="@{/user/login}" method="post">
+						<fieldset>
+							<div class="field">
+								<label class="label_field">Email Address</label>
+								<input name="email" placeholder="E-mail" type="email"/>
+							</div>
+							<div class="field">
+								<label class="label_field">Password</label>
+								<input name="password" placeholder="Password" type="password"/>
+							</div>
+							<div class="field">
+							</div>
+							
+							<div class="dis_flex justify-content-end">
+								
+								<!--로그인 btn-->
+								<div class="field center">
+									<button class="main_bt mr-2" type="submit">로그인</button>
+								</div>
+
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div th:replace="/fragments/commons::script"></div>
+</body>
+</html>

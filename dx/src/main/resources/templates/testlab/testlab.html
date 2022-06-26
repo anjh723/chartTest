@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/commons::header">
+<body class="dashboard dashboard_1">
+<div class="full_container">
+	<div class="inner_container">
+		<!-- Sidebar  -->
+		<nav th:replace="/fragments/commons::sidebar"></nav>
+		<!-- end sidebar -->
+		<!-- right content -->
+		<div id="content">
+			<!-- topbar -->
+			<div th:replace="/fragments/commons::topbar"></div>
+			<!-- dashboard inner -->
+			<div class="midde_cont">
+				<div class="container-fluid">
+					<div class="row column_title">
+						<div class="col-md-12">
+							<div class="page_title">
+								<h2>TestLab</h2>
+							</div>
+						</div>
+						<div class="container">
+							<div class="testLab_form">
+								<div class="testLab_locate_form_tab">
+									<a href="#"> 개발(창원) </a>
+								</div>
+								<div class="testLab_locate_form_tab">
+									<a href="#"> 선행개발(창원) </a>
+								</div>
+								<div class="testLab_locate_form_tab">
+									<a href="#"> 선행(가산) </a>
+								</div>
+
+								<div class="testLab_room_form_tab">
+									<div class="testLab_select_room">
+										<a href="#" class="testLab_select_room_btn">인정시험실</a>
+										<div class="testLab_select_chamber">
+											<a href="#" class="testLab_chamber"> Chamber01 </a>
+											<a href="#" class="testLab_chamber"> Chamber02 </a>
+											<a href="#" class="testLab_chamber"> Chamber03 </a>
+											<a href="#" class="testLab_chamber"> Chamber04 </a>
+											<a href="#" class="testLab_chamber"> Chamber05 </a>
+											<a href="#" class="testLab_chamber"> Chamber06 </a>
+										</div>
+									</div>
+									<div class="testLab_select_room">
+										<a href="#" class="testLab_select_room_btn">소음시험실</a>
+										<div class="testLab_select_chamber">
+											<a href="#" class="testLab_chamber"> Chamber01 </a>
+											<a href="#" class="testLab_chamber"> Chamber02 </a>
+											<a href="#" class="testLab_chamber"> Chamber03 </a>
+										</div>
+									</div>
+									<div class="testLab_select_room">
+										<a href="#" class="testLab_select_room_btn">신뢰성시험실</a>
+										<div class="testLab_select_chamber">
+											<a href="#" class="testLab_chamber"> Chamber01 </a>
+											<a href="#" class="testLab_chamber"> Chamber02 </a>
+											<a href="#" class="testLab_chamber"> Chamber03 </a>
+											<a href="#" class="testLab_chamber"> Chamber04 </a>
+											<a href="#" class="testLab_chamber"> Chamber05 </a>
+											<a href="#" class="testLab_chamber"> Chamber06 </a>
+											<a href="#" class="testLab_chamber"> Chamber07 </a>
+											<a href="#" class="testLab_chamber"> Chamber08 </a>
+											<a href="#" class="testLab_chamber"> Chamber09 </a>
+											<a href="#" class="testLab_chamber"> Chamber10 </a>
+											<a href="#" class="testLab_chamber"> Chamber11 </a>
+											<a href="#" class="testLab_chamber"> Chamber12 </a>
+											<a href="#" class="testLab_chamber"> Chamber13 </a>
+											<a href="#" class="testLab_chamber"> Chamber14 </a>
+											<a href="#" class="testLab_chamber"> Chamber15 </a>
+											<a href="#" class="testLab_chamber"> Chamber16 </a>
+											<a href="#" class="testLab_chamber"> Chamber17 </a>
+											<a href="#" class="testLab_chamber"> Chamber18 </a>
+											<a href="#" class="testLab_chamber"> Chamber19 </a>
+											<a href="#" class="testLab_chamber"> Chamber20 </a>
+											<a href="#" class="testLab_chamber"> Chamber21 </a>
+											<a href="#" class="testLab_chamber"> Chamber22 </a>
+											<a href="#" class="testLab_chamber"> Chamber23 </a>
+										</div>
+									</div>
+									<div class="testLab_select_room">
+										<a href="#" class="testLab_select_room_btn">선행개발시험실</a>
+										<div class="testLab_select_chamber">
+											<a href="#" class="testLab_chamber"> Chamber01 </a>
+											<a href="#" class="testLab_chamber"> Chamber02 </a>
+											<a href="#" class="testLab_chamber"> Chamber03 </a>
+											<a href="#" class="testLab_chamber"> Chamber04 </a>
+											<a href="#" class="testLab_chamber"> Chamber05 </a>
+										</div>
+									</div>
+									<div class="testLab_select_room">
+										<a href="#" class="testLab_select_room_btn">소음시험실</a>
+										<div class="testLab_select_chamber">
+											<a href="#" class="testLab_chamber"> Chamber01 </a>
+											<a href="#" class="testLab_chamber"> Chamber02 </a>
+											<a href="#" class="testLab_chamber"> Chamber03 </a>
+											<a href="#" class="testLab_chamber"> Chamber04 </a>
+										</div>
+									</div>
+									<div class="testLab_select_room">
+										<a href="#" class="testLab_select_room_btn">선행시험실</a>
+										<div class="testLab_select_chamber">
+											<a href="#" class="testLab_chamber"> Chamber01 </a>
+											<a href="#" class="testLab_chamber"> Chamber02 </a>
+											<a href="#" class="testLab_chamber"> Chamber03 </a>
+											<a href="#" class="testLab_chamber"> Chamber04 </a>
+											<a href="#" class="testLab_chamber"> Chamber05 </a>
+											<a href="#" class="testLab_chamber"> Chamber06 </a>
+											<a href="#" class="testLab_chamber"> Chamber07 </a>
+											<a href="#" class="testLab_chamber"> Chamber08 </a>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+
+					<!-- footer -->
+					<div th:replace="/fragments/commons::footer"></div>
+
+				</div>
+				<!-- end dashboard inner -->
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<div th:replace="/fragments/commons::script"></div>
+</html>

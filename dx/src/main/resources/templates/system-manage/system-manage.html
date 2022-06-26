@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/commons::header">
+<body class="dashboard dashboard_1">
+<div class="full_container">
+	<div class="inner_container">
+		<!-- Sidebar  -->
+		<nav th:replace="/fragments/commons::sidebar"></nav>
+		<!-- end sidebar -->
+		<!-- right content -->
+		<div id="content">
+			<!-- topbar -->
+			<div th:replace="/fragments/commons::topbar"></div>
+			<!-- dashboard inner -->
+			<div class="midde_cont">
+				<div class="container-fluid">
+					<div class="row column_title">
+						<div class="col-md-12">
+							<div class="page_title">
+								<h2>System Manage</h2>
+							</div>
+							
+							<div class="container">
+								<div class="system_manage_form">
+									<form>
+										<label> <i
+												class="fa fa-exchange system_manage_icon"
+												aria-hidden="true"></i>
+											Communication Protocol Add</label>
+										<div class="system_manage_tab">
+											<div class="system_manage_tab_content">
+												<p>1. Version</p>
+												<p>2. Date</p>
+												<p>3. Person</p>
+												<p>4. Comments</p>
+												<p>5. Program</p>
+											</div>
+											<div id="system_manage_tab_btns__first" class="system_manage_tab_btn">
+												<button>Program</button>
+												<button>Date</button>
+											</div>
+										</div>
+										<label> <i
+												class="fa fa-exchange system_manage_icon"
+												aria-hidden="true"></i>
+											Communication Protocol Detail</label>
+										<div class="system_manage_tab">
+											<div class="system_manage_tab_content">
+												<p>▶ 신규등록 : </p>
+												<p>- Version : 1.2.05</p>
+												<p>- Date : 2022-04-01</p>
+												<p>- Person : 심재환</p>
+												<p>- Comments : 신규등록 / 테스트버전</p>
+												<p id="program_file_value">- Program : 파일 등록 전.</p>
+											</div>
+											<div class="system_manage_tab_btn">
+												<button id="system_manage_power_btn">●</button>
+												<label id="system_manage_file_upload_label" for="system_manage_file_upload">File Upload</label>
+												<input id="system_manage_file_upload" type="file">
+												<button>2022-04-01</button>
+												<button>Save</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+					
+					<!-- footer -->
+					<div th:replace="/fragments/commons::footer"></div>
+				
+				</div>
+				<!-- end dashboard inner -->
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<div th:replace="/fragments/commons::script"></div>
+<script>
+	let fileValue = document.querySelector('#program_file_value')
+	let fileInput = document.querySelector('#system_manage_file_upload');
+	
+	fileInput.addEventListener('change', (e) => {
+		fileValue.innerText = '- Programs: ' + e.target.value;
+	})
+</script>
+</html>

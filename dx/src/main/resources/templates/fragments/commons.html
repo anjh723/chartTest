@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+	<!-- basic -->
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<!-- mobile metas -->
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="initial-scale=1, maximum-scale=1" name="viewport">
+	<!-- site metas -->
+	<title>키친 개발 DX 관제시스템</title>
+	
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+	<meta content="" name="author">
+	<!-- site icon -->
+	<link rel="icon" type="image/png" sizes="32x32" th:href="@{/images/favicon.png}"/>
+	<!-- bootstrap css -->
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+	<!-- site css -->
+	<link th:href="@{/css/style.css}" rel="stylesheet"/>
+	<!-- responsive css -->
+	<link th:href="@{/css/responsive.css}" rel="stylesheet"/>
+	<!-- color css -->
+<!--	<link href="/css_2/colors.css" rel="stylesheet"/>-->
+	<!-- select bootstrap -->
+	<link th:href="@{/css/bootstrap-select.css}" rel="stylesheet"/>
+	<!-- scrollbar css -->
+	<link th:href="@{/css/perfect-scrollbar.css}" rel="stylesheet"/>
+	<!-- custom css -->
+	<link th:href="@{/css/custom.css}" rel="stylesheet"/>
+	<!-- custom2 css -->
+	<link th:href="@{/css/custom2.css}" rel="stylesheet"/>
+	<!-- highCharts css-->
+<!--	<link th:href="@{/css/highcharts.css}"/>-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/fontawesome.css}">
+	<script th:src="@{/js/fontawesome.js}"></script>
+	
+</head>
+
+<!-- Sidebar  -->
+<nav id="sidebar" th:fragment="sidebar">
+	<div class="sidebar_blog_1">
+		<div class="sidebar-header">
+			<div class="logo_section">
+				<a th:href="@{/index}"><img alt="#" class="logo_icon img-responsive" th:src="@{${session.user.profile}}"></a>
+			</div>
+		</div>
+		<div class="sidebar_user_info">
+			<div class="icon_setting"></div>
+			<div class="user_profle_side">
+				<div class="user_img">
+					<img alt="#" class="img-responsive" th:src="@{ ${session.user.getProfile()} }"/>
+				</div>
+				<div class="user_info">
+					<h6 th:text="${session.user.getName()}"></h6>
+					<p><span class="online_animation"></span> Online</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar_blog_2">
+		<h4>Menu</h4>
+		<ul class="list-unstyled components">
+			<li class="active">
+				<a th:href="@{/datamanage}"> <i class="fa fa-database" aria-hidden="true"></i> <span>Data Manage</span></a>
+			</li>
+
+			<li class="active">
+				<a th:href="@{/datamanage2}"> <i class="fa fa-database" aria-hidden="true"></i> <span>Data Manage 2</span></a>
+			</li>
+			
+			<li>
+				<a th:href="@{/analysis}"> <i class="fa fa-pie-chart" aria-hidden="true"></i> <span>Analysis</span></a>
+			</li>
+			
+			<li>
+				<a th:href="@{/system_manage}"> <i class="fa fa-file" aria-hidden="true"></i> <span>System Manage</span></a>
+			</li>
+			
+			<li>
+				<a th:href="@{/testlab}"> <i class="fa fa-flask" aria-hidden="true"></i> <span>TestLab</span></a>
+			</li>
+			
+			<li>
+				<a th:href="@{/monitoring}"> <i class="fa fa-desktop" aria-hidden="true"></i> <span>Monitoring</span></a>
+			</li>
+
+<!--			<li>-->
+<!--				<a th:href="@{/bulletin}"> <i class="fa fa-question" aria-hidden="true"></i> <span>Bulletin</span></a>-->
+<!--			</li>-->
+
+			<li>
+				<a th:href="@{/settings}"> <i class="fa fa-question" aria-hidden="true"></i> <span>Settings</span></a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<!-- end sidebar -->
+
+<!-- topbar -->
+<div class="topbar" th:fragment="topbar">
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<div class="full">
+			<button class="sidebar_toggle" id="sidebarCollapse" type="button"><i class="fa fa-bars"></i>
+			</button>
+			<div class="logo_section">
+				<a th:href="@{/index}"><img alt="#" class="img-responsive" th:src="@{'/images/logo/logo.png'}"/></a>
+			</div>
+			<div class="right_topbar">
+				<div class="icon_info">
+					<ul>
+						<li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+						<li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a>
+						</li>
+					</ul>
+					<ul class="user_profile_dd">
+						<li>
+							<a class="dropdown-toggle" data-toggle="dropdown"><img
+									alt="#"
+									class="img-responsive rounded-circle" th:src="@{${session.user.profile}}"/><span
+									class="name_user" th:text="${session.user.getName()}"></span></a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" th:href="@{/profile}">My Profile</a>
+								<a class="dropdown-item" th:href="@{/logout}"><span>LogOut</span> <i
+										class="fa fa-sign-out"></i></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+<!-- end topbar -->
+
+
+<!-- footer -->
+<div class="container-fluid" th:fragment="footer">
+	<div class="footer">
+		<p>Copyright © 2022 LG Electronics.
+		</p>
+	</div>
+</div>
+
+
+<div th:fragment="script">
+<!--	<script th:src="@{/js/chart/highcharts.js}"></script>-->
+	<script th:src="@{/js/chart/boost.js}"></script>
+	<script th:src="@{/js/chart/exporting.js}"></script>
+	<script th:src="@{/js/chart/accessibility.js}"></script>
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<!-- wow animation -->
+	<script th:src="@{/js/animate.js}"></script>
+	<!-- select country -->
+	<script th:src="@{/js/bootstrap-select.js}"></script>
+	<!-- chart js -->
+	<script th:src="@{/js/utils.js}"></script>
+	<!-- nice scrollbar -->
+	<script th:src="@{/js/perfect-scrollbar.min.js}"></script>
+	<script>
+		var ps = new PerfectScrollbar('#sidebar');
+	</script>
+	<!-- custom js -->
+	<script th:src="@{/js/custom.js}"></script>
+</div>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/commons::header"></head>
+<body class="dashboard dashboard_1">
+
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <nav th:replace="/fragments/commons::sidebar"></nav>
+        <!-- end sidebar -->
+        <!-- right content -->
+        <div id="content">
+            <!-- topbar -->
+            <div th:replace="/fragments/commons::topbar"></div>
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+                <div class="container-fluid">
+                    <div class="row column_title">
+                        <div class="col-md-12">
+                            <div class="page_title">
+                                <h2>Bulletin</h2>
+                            </div>
+
+                            <div class="col-md-12 col-lg-10"
+                                 style="margin: 0 auto;">
+                                <div class="white_shd full margin_bottom_30">
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2 style="height: 30px; line-height: 30px;">Question</h2>
+                                        </div>
+                                        <div style="float:right;;">
+                                            <img th:src="@{${questionBoard.user.profile}}" width="30px" height="30px"/>
+                                            <span><p class="user_form_text" style="margin-bottom: 0px;">[[${questionBoard.user.name}]]</p></span>
+                                            <span><p class="user_form_text" style="margin-bottom: 0px;">부서 : [[${questionBoard.user.department}]]</p></span>
+                                            <span><p class="user_form_text" style="margin-bottom: 0px;">개인번호 :  [[${questionBoard.user.tel}]]</p></span>
+                                            <span><p class="user_form_text" style="margin-bottom: 0px;" th:text="'작성일 : ' + ${#temporals.format(questionBoard.created,'yyyy-MM-dd hh:mm:ss')}"></p></span>
+                                            <span><p class="user_form_text" style="margin-bottom: 0px;">Type : [[${questionBoard.type}]]</p></span>
+                                        </div>
+                                    </div>
+                                    <div class="bulletin-form">
+
+                                            <!--폼 제목-->
+                                            <div class="bulletin-field">
+                                                <label class="bulletin-field-label">Title</label>
+                                                <h2>[[${questionBoard.title}]]</h2>
+                                            </div>
+
+                                            <div class="bulletin-field">
+                                                <label class="bulletin-field-label">Content</label>
+                                                <textarea
+                                                        name="content"
+                                                        id="bulletin_field_textarea-readonly"
+                                                        placeholder="  내용을 입력해 주세요"
+                                                        readonly>[[${questionBoard.content}]]</textarea>
+                                            </div>
+
+                                            <!-- Button-->
+                                            <div class="bulletin-field-form-btns bulletin-field dis_flex justify-content-end">
+                                                <div class="field center">
+                                                    <!--Reset btn-->
+                                                    <button type="button"
+                                                            class="main_bt2"
+                                                            onclick="location.href='/bulletin'"
+                                                    >
+                                                        Previous
+                                                    </button>
+
+                                                    <!--Submit btn-->
+                                                    <button type="submit"
+                                                            class="main_bt">
+                                                        reply
+                                                    </button>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--Form End-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div th:replace="/fragments/commons::footer"></div>
+</div>
+<!-- end dashboard inner -->
+</body>
+<div th:replace="/fragments/commons::script"></div>
+</html>

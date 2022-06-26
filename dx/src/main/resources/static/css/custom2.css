@@ -1,0 +1,43 @@
+.search__form {
+    display: flex;
+    width: calc(1110px);
+    height: calc(380px - 50px);
+    background-color: rgba(224, 224, 224, 0.84);
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.search__form__tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: calc(100% );
+    height: calc( 100% );
+    padding: 10px;
+}
+
+.search__form__tab label {
+    font-size: 12px;
+    line-height: 12px;
+    height: 12px;
+}
+
+.search__form__attribute{
+    display: flex;
+    width: 60%;
+    height: 87.5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search__form__attribute div {
+    width: 166.5px;
+    height: 50px;
+}
+
+.search__form__attribute__input {
+    width: 150px;
+    height: 30px;
+    text-align: center;
+}
