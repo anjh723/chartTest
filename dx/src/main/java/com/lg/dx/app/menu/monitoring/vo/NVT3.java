@@ -1,0 +1,73 @@
+package com.lg.dx.app.menu.monitoring.vo;
+
+import lombok.Data;
+
+@Data
+public class NVT3 {
+    private long UID;
+    private float SPL_CH1_TOTAL;
+    private float SPL_CH1_20Hz;
+    private float SPL_CH1_25Hz;
+    private float SPL_CH1_31_5Hz;
+    private float SPL_CH1_40Hz;
+    private float SPL_CH1_50Hz;
+    private float SPL_CH1_63Hz;
+    private float SPL_CH1_80Hz;
+    private float SPL_CH1_100Hz;
+    private float SPL_CH1_125Hz;
+    private float SPL_CH1_160Hz;
+    private float SPL_CH1_200Hz;
+    private float SPL_CH1_250Hz;
+    private float SPL_CH1_315Hz;
+    private float SPL_CH1_400Hz;
+    private float SPL_CH1_500Hz;
+    private float SPL_CH1_630Hz;
+    private float SPL_CH1_800Hz;
+    private float SPL_CH1_1KHz;
+    private float SPL_CH1_1_25KHz;
+    private float SPL_CH1_1_6KHz;
+    private float SPL_CH1_2KHz;
+    private float SPL_CH1_2_5KHz;
+    private float SPL_CH1_3_15KHz;
+    private float SPL_CH1_4KHz;
+    private float SPL_CH1_5KHz;
+    private float SPL_CH1_6_3KHz;
+    private float SPL_CH1_8KHz;
+    private float SPL_CH1_10KHz;
+    private float SPL_CH1_12_5KHz;
+    private float SPL_CH1_16KHz;
+    private float SPL_CH1_20KHz;
+    private float SPL_CH2_TOTAL;
+    private float SPL_CH2_20Hz;
+    private float SPL_CH2_25Hz;
+    private float SPL_CH2_31_5Hz;
+    private float SPL_CH2_40Hz;
+    private float SPL_CH2_50Hz;
+    private float SPL_CH2_63Hz;
+    private float SPL_CH2_80Hz;
+    private float SPL_CH2_100Hz;
+    private float SPL_CH2_125Hz;
+    private float SPL_CH2_160Hz;
+    private float SPL_CH2_200Hz;
+    private float SPL_CH2_250Hz;
+    private float SPL_CH2_315Hz;
+    private float SPL_CH2_400Hz;
+    private float SPL_CH2_500Hz;
+    private float SPL_CH2_630Hz;
+    private float SPL_CH2_800Hz;
+    private float SPL_CH2_1KHz;
+    private float SPL_CH2_1_25KHz;
+    private float SPL_CH2_1_6KHz;
+    private float SPL_CH2_2KHz;
+    private float SPL_CH2_2_5KHz;
+    private float SPL_CH2_3_15KHz;
+    private float SPL_CH2_4KHz;
+    private float SPL_CH2_5KHz;
+    private float SPL_CH2_6_3KHz;
+    private float SPL_CH2_8KHz;
+    private float SPL_CH2_10KHz;
+    private float SPL_CH2_12_5KHz;
+    private float SPL_CH2_16KHz;
+    private float SPL_CH2_20KHz;
+
+}

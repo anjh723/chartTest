@@ -91,7 +91,7 @@ const getMonitoringData = () => {
             .then((data) => {
                 data.forEach((e) => {
                     UID = (e.uid * 1)
-                    console.log(data)
+                    //console.log(data)
                     let tmp_SPL_CH1_TOTAL_LIST = SPL_CH1_TOTAL_LIST[SPL_CH1_TOTAL_LIST.length -1]
                     let tmp_SPL_CH2_TOTAL_LIST = SPL_CH2_TOTAL_LIST[SPL_CH2_TOTAL_LIST.length -1]
 
@@ -197,7 +197,7 @@ const getInMonitoring = () => {
             return res.json();
         })
         .then((data) => {
-            console.log(data)
+            //console.log(data)
             COMP_PWM.push(data[0]);
             if (COMP_PWM.length - 1 > 30) {
                 COMP_PWM.shift();

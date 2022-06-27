@@ -1,0 +1,42 @@
+{"properties": [
+  {
+    "name": "server.netty.port",
+    "type": "java.lang.String",
+    "description": "A description for 'server.netty.port'"
+  },
+  {
+    "name": "server.netty.boss-count",
+    "type": "java.lang.String",
+    "description": "A description for 'server.netty.boss-count'"
+  },
+  {
+    "name": "server.netty.host",
+    "type": "java.lang.String",
+    "description": "A description for 'server.netty.host'"
+  },
+  {
+    "name": "server.netty.msg.kv.separator",
+    "type": "java.lang.String",
+    "description": "A description for 'server.netty.msg.kv.separator'"
+  },
+  {
+    "name": "server.netty.msg.separator",
+    "type": "java.lang.String",
+    "description": "A description for 'server.netty.msg.separator'"
+  },
+  {
+    "name": "server.netty.keep-alive",
+    "type": "java.lang.String",
+    "description": "A description for 'server.netty.keep-alive'"
+  },
+  {
+    "name": "server.netty.backlog",
+    "type": "java.lang.String",
+    "description": "A description for 'server.netty.backlog'"
+  },
+  {
+    "name": "server.netty.worker-count",
+    "type": "java.lang.String",
+    "description": "A description for 'server.netty.worker-count'"
+  }
+]}

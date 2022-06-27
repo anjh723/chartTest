@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lg.dx.app.menu.monitoring.mapper.MonitoringMapper">
+
+    <resultMap type="com.lg.dx.app.menu.monitoring.vo.NVT3" id="monitoringResultMap">
+        <id column="UID" property="UID" />
+        <result column="SPL_CH1_TOTAL" property="SPL_CH1_TOTAL" />
+        <result column="SPL_CH1_20Hz" property="SPL_CH1_20Hz" />
+        <result column="SPL_CH1_25Hz" property="SPL_CH1_25Hz" />
+        <result column="SPL_CH1_31_5Hz" property="SPL_CH1_31_5Hz" />
+        <result column="SPL_CH1_40Hz" property="SPL_CH1_40Hz" />
+        <result column="SPL_CH1_50Hz" property="SPL_CH1_50Hz" />
+        <result column="SPL_CH1_63Hz" property="SPL_CH1_63Hz" />
+        <result column="SPL_CH1_80Hz" property="SPL_CH1_80Hz" />
+        <result column="SPL_CH1_100Hz" property="SPL_CH1_100Hz" />
+        <result column="SPL_CH1_125Hz" property="SPL_CH1_125Hz" />
+        <result column="SPL_CH1_160Hz" property="SPL_CH1_160Hz" />
+        <result column="SPL_CH1_200Hz" property="SPL_CH1_200Hz" />
+        <result column="SPL_CH1_250Hz" property="SPL_CH1_250Hz" />
+        <result column="SPL_CH1_315Hz" property="SPL_CH1_315Hz" />
+        <result column="SPL_CH1_400Hz" property="SPL_CH1_400Hz" />
+        <result column="SPL_CH1_500Hz" property="SPL_CH1_500Hz" />
+        <result column="SPL_CH1_630Hz" property="SPL_CH1_630Hz" />
+        <result column="SPL_CH1_800Hz" property="SPL_CH1_800Hz" />
+        <result column="SPL_CH1_1KHz" property="SPL_CH1_1KHz" />
+        <result column="SPL_CH1_1_25KHz" property="SPL_CH1_1_25KHz" />
+        <result column="SPL_CH1_1_6KHz" property="SPL_CH1_1_6KHz" />
+        <result column="SPL_CH1_2KHz" property="SPL_CH1_2KHz" />
+        <result column="SPL_CH1_2_5KHz" property="SPL_CH1_2_5KHz" />
+        <result column="SPL_CH1_3_15KHz" property="SPL_CH1_3_15KHz" />
+        <result column="SPL_CH1_4KHz" property="SPL_CH1_4KHz" />
+        <result column="SPL_CH1_5KHz" property="SPL_CH1_5KHz" />
+        <result column="SPL_CH1_6_3KHz" property="SPL_CH1_6_3KHz" />
+        <result column="SPL_CH1_8KHz" property="SPL_CH1_8KHz" />
+        <result column="SPL_CH1_10KHz" property="SPL_CH1_10KHz" />
+        <result column="SPL_CH1_12_5KHz" property="SPL_CH1_12_5KHz" />
+        <result column="SPL_CH1_16KHz" property="SPL_CH1_16KHz" />
+        <result column="SPL_CH1_20KHz" property="SPL_CH1_20KHz" />
+        <result column="SPL_CH2_TOTAL" property="SPL_CH2_TOTAL" />
+        <result column="SPL_CH2_20Hz" property="SPL_CH2_20Hz" />
+        <result column="SPL_CH2_25Hz" property="SPL_CH2_25Hz" />
+        <result column="SPL_CH2_31_5Hz" property="SPL_CH2_31_5Hz" />
+        <result column="SPL_CH2_40Hz" property="SPL_CH2_40Hz" />
+        <result column="SPL_CH2_50Hz" property="SPL_CH2_50Hz" />
+        <result column="SPL_CH2_63Hz" property="SPL_CH2_63Hz" />
+        <result column="SPL_CH2_80Hz" property="SPL_CH2_80Hz" />
+        <result column="SPL_CH2_100Hz" property="SPL_CH2_100Hz" />
+        <result column="SPL_CH2_125Hz" property="SPL_CH2_125Hz" />
+        <result column="SPL_CH2_160Hz" property="SPL_CH2_160Hz" />
+        <result column="SPL_CH2_200Hz" property="SPL_CH2_200Hz" />
+        <result column="SPL_CH2_250Hz" property="SPL_CH2_250Hz" />
+        <result column="SPL_CH2_315Hz" property="SPL_CH2_315Hz" />
+        <result column="SPL_CH2_400Hz" property="SPL_CH2_400Hz" />
+        <result column="SPL_CH2_500Hz" property="SPL_CH2_500Hz" />
+        <result column="SPL_CH2_630Hz" property="SPL_CH2_630Hz" />
+        <result column="SPL_CH2_800Hz" property="SPL_CH2_800Hz" />
+        <result column="SPL_CH2_1KHz" property="SPL_CH2_1KHz" />
+        <result column="SPL_CH2_1_25KHz" property="SPL_CH2_1_25KHz" />
+        <result column="SPL_CH2_1_6KHz" property="SPL_CH2_1_6KHz" />
+        <result column="SPL_CH2_2KHz" property="SPL_CH2_2KHz" />
+        <result column="SPL_CH2_2_5KHz" property="SPL_CH2_2_5KHz" />
+        <result column="SPL_CH2_3_15KHz" property="SPL_CH2_3_15KHz" />
+        <result column="SPL_CH2_4KHz" property="SPL_CH2_4KHz" />
+        <result column="SPL_CH2_5KHz" property="SPL_CH2_5KHz" />
+        <result column="SPL_CH2_6_3KHz" property="SPL_CH2_6_3KHz" />
+        <result column="SPL_CH2_8KHz" property="SPL_CH2_8KHz" />
+        <result column="SPL_CH2_10KHz" property="SPL_CH2_10KHz" />
+        <result column="SPL_CH2_12_5KHz" property="SPL_CH2_12_5KHz" />
+        <result column="SPL_CH2_16KHz" property="SPL_CH2_16KHz" />
+        <result column="SPL_CH2_20KHz" property="SPL_CH2_20KHz" />
+    </resultMap>
+
+
+    <select id="monitoring" resultMap="monitoringResultMap">
+        SELECT n.UID,
+               n.SPL_CH1_TOTAL,
+               n.SPL_CH1_20Hz,
+               n.SPL_CH1_25Hz,
+               n.SPL_CH1_31_5Hz,
+               n.SPL_CH1_40Hz,
+               n.SPL_CH1_50Hz,
+               n.SPL_CH1_63Hz,
+               n.SPL_CH1_80Hz,
+               n.SPL_CH1_100Hz,
+               n.SPL_CH1_125Hz,
+               n.SPL_CH1_160Hz,
+               n.SPL_CH1_200Hz,
+               n.SPL_CH1_250Hz,
+               n.SPL_CH1_315Hz,
+               n.SPL_CH1_400Hz,
+               n.SPL_CH1_500Hz,
+               n.SPL_CH1_630Hz,
+               n.SPL_CH1_800Hz,
+               n.SPL_CH1_1KHz,
+               n.SPL_CH1_1_25KHz,
+               n.SPL_CH1_1_6KHz,
+               n.SPL_CH1_2KHz,
+               n.SPL_CH1_2_5KHz,
+               n.SPL_CH1_3_15KHz,
+               n.SPL_CH1_4KHz,
+               n.SPL_CH1_5KHz,
+               n.SPL_CH1_6_3KHz,
+               n.SPL_CH1_8KHz,
+               n.SPL_CH1_10KHz,
+               n.SPL_CH1_12_5KHz,
+               n.SPL_CH1_16KHz,
+               n.SPL_CH1_20KHz,
+               n.SPL_CH2_TOTAL,
+               n.SPL_CH2_20Hz,
+               n.SPL_CH2_25Hz,
+               n.SPL_CH2_31_5Hz,
+               n.SPL_CH2_40Hz,
+               n.SPL_CH2_50Hz,
+               n.SPL_CH2_63Hz,
+               n.SPL_CH2_80Hz,
+               n.SPL_CH2_100Hz,
+               n.SPL_CH2_125Hz,
+               n.SPL_CH2_160Hz,
+               n.SPL_CH2_200Hz,
+               n.SPL_CH2_250Hz,
+               n.SPL_CH2_315Hz,
+               n.SPL_CH2_400Hz,
+               n.SPL_CH2_500Hz,
+               n.SPL_CH2_630Hz,
+               n.SPL_CH2_800Hz,
+               n.SPL_CH2_1KHz,
+               n.SPL_CH2_1_25KHz,
+               n.SPL_CH2_1_6KHz,
+               n.SPL_CH2_2KHz,
+               n.SPL_CH2_2_5KHz,
+               n.SPL_CH2_3_15KHz,
+               n.SPL_CH2_4KHz,
+               n.SPL_CH2_5KHz,
+               n.SPL_CH2_6_3KHz,
+               n.SPL_CH2_8KHz,
+               n.SPL_CH2_10KHz,
+               n.SPL_CH2_12_5KHz,
+               n.SPL_CH2_16KHz,
+               n.SPL_CH2_20KHz
+        FROM DXLGE.dbo.NVT3 n
+        ORDER BY n.UID DESC
+        OFFSET #{page} ROWS FETCH NEXT 1 ROWS ONLY
+    </select>
+    <select id="outMonitoring" parameterType="hashMap" resultType="hashMap">
+        select
+            "#1전력" as 전력_1,
+            "#1적산전력" as 적산전력_1,
+            "#2전력" as 전력_2,
+            "#2적산전력" as 적산전력_2
+        from OUT2DATA O1D
+        ORDER BY O1D.UID DESC
+        OFFSET #{page} ROWS FETCH NEXT 1 ROWS ONLY
+    </select>
+
+
+    <select id="inMonitoring" parameterType="hashMap" resultType="hashMap">
+        select rq.Comp_PWM as COMP_PWM
+        from Req_CWREF_1128_2205311502 rq
+        ORDER BY rq.TIME DESC
+        OFFSET #{page} ROWS FETCH NEXT 1 ROWS ONLY
+    
+    </select>
+
+
+</mapper>
