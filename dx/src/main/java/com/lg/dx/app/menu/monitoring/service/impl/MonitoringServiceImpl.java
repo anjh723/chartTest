@@ -2,13 +2,14 @@ package com.lg.dx.app.menu.monitoring.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lg.dx.app.menu.monitoring.mapper.MonitoringMapper;
 import com.lg.dx.app.menu.monitoring.service.MonitoringService;
-import com.lg.dx.app.menu.monitoring.vo.NVT3;
+import com.lg.dx.app.menu.monitoring.vo.NVT;
 
 @Service
 public class MonitoringServiceImpl implements MonitoringService {
@@ -17,7 +18,7 @@ public class MonitoringServiceImpl implements MonitoringService {
     private MonitoringMapper monitoringMapper;
 
     @Override
-    public List<NVT3> monitoring(int page) {
+    public List<NVT> monitoring(int page) {
         return monitoringMapper.monitoring(page);
     }
 
@@ -29,6 +30,16 @@ public class MonitoringServiceImpl implements MonitoringService {
     @Override
     public HashMap<String, Object> inMonitoring(int page) {
         return monitoringMapper.inMonitoring(page);
+    }
+
+    @Override
+    public List<NVT> getStaticData(Map<String, Object> requests) {
+        return monitoringMapper.getStaticData(requests);
+    }
+
+    @Override
+    public List<NVT> getLiveData(Map<String, Object> requests) {
+        return monitoringMapper.getLiveData(requests);
     }
 
 }

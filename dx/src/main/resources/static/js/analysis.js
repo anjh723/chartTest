@@ -262,11 +262,10 @@ var chart = Highcharts.chart('container', {
 });
 
 
-var chart2 = Highcharts.chart('container2', {
+chart2 = Highcharts.chart('container2', {
     chart: {
         width: 1000,
         height: 300,
-
     },
 
     legend: {enabled: false},

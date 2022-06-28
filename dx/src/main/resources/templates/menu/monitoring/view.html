@@ -4,8 +4,8 @@
 <head th:replace="/fragments/commons::header"></head>
 <link rel="stylesheet" th:href="@{/css/chart/chart.css}" type="text/css">
 <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 <!--<script src="https://code.highcharts.com/modules/data.js"></script>-->
-<!--<script src="https://code.highcharts.com/modules/exporting.js"></script>-->
 <!--<script src="https://code.highcharts.com/modules/export-data.js"></script>-->
 <!--<script src="https://code.highcharts.com/modules/accessibility.js"></script>-->
 <style>
@@ -14,7 +14,7 @@
         justify-content: center;
     }
 
-    #container-remodel1 {
+    #StaticDataContainer {
         display: flex;
         width: 1000px;
         height: 400px;
@@ -81,7 +81,7 @@
                 <div class="chart__container">
                     <div class="chart__div1">
                         <figure class="highcharts-figure">
-                            <div id="container-remodel1"></div>
+                            <div id="static_data_container"></div>
                         </figure>
                     </div>
 
