@@ -1,3 +1,10 @@
+
+
+// ============================== 대용량 데이터 차트 테스트 Start ===============================
+// table : NVT6 총 데이터 개수 53000개
+// option : CH1 데이터 32개
+// 총 데이터 수 170만건 가량
+
 const staticDataTitle = [
     "SPL_CH1_20Hz",
     "SPL_CH1_25Hz",
@@ -106,6 +113,7 @@ const staticDataLineColor = [
 let staticDataSeries = [];
 let staticDataXTitles = [];
 
+// 화면 load후 바로실행
 $(document).ready(function () {
     requestStaticData();
 });
@@ -122,7 +130,7 @@ function createStaticChart() {
         legend: {
 			enabled: true
             , itemStyle: {
-                color: '#ffffff'
+                color: '#000000'
             }
         },
         Axis: {
@@ -163,22 +171,25 @@ function requestStaticData() {
                 name: staticDataTitle[i],
                 color: staticDataLineColor[i],
                 data: []
-            }                
+            };          
         }
 
-        if (data != null && data.length > 0) {
-            data.forEach((element, index) => {
-                for (let i = 0; i < staticDataKeys.length; i++) {
-                    staticDataSeries[i].data.unshift(element[staticDataKeys[i]]);
+        if (data != null) {
+            for (let i = 0; i < data.length; i++) {  // 데이터 개수만큼 반복 (쿼리 데이터 row수)
+                for (let j = 0; j < staticDataKeys.length; j++) {
+                    staticDataSeries[j].data.push(data[i][staticDataKeys[j]]);  // 그래프 마다 반복하며 데이터 set
                 }
-            });
+            }
         }
 
         // chart 생성
         createStaticChart();
     });
 }
+// ============================== 대용량 데이터 차트 테스트 End ===============================
 
+
+// ============================== TODO : 실시간 차트 작업 해야함.==============================
 let liveChart = new Highcharts.Chart({
     chart: {
         renderTo: 'container-remodel2',

@@ -328,7 +328,7 @@
         FROM 
             DXLGE.dbo.${tableName} n
         ORDER BY 
-            n.UID DESC
+            n.UID ASC
     </select>
 
     <select id="getLiveData" parameterType="hashMap" resultMap="NVTMap">
