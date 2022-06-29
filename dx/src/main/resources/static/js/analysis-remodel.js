@@ -1,4 +1,11 @@
-const staticDataTitle = [
+// ======================= 차트 호출 =========================
+$(document).ready(function () {
+    //requestStaticDataChart();
+    callRealTimeDataChart();
+});
+// ===========================================================
+
+const dataTitles = [
     "SPL_CH1_20Hz",
     "SPL_CH1_25Hz",
     "SPL_CH1_31_5Hz",
@@ -33,7 +40,7 @@ const staticDataTitle = [
     "SPL_CH1_TOTAL",
 ];
 
-const staticDataKeys = [
+const dataKeys = [
     "splCh1_20hz",
     "splCh1_25hz",
 	"splCh1_31_5hz",
@@ -68,7 +75,7 @@ const staticDataKeys = [
 	"splCh1Total"
 ];
 
-const staticDataLineColor = [
+const graghLineColors = [
     "#e1beff",
     "#ffdbff",
     "#78767b",
@@ -103,17 +110,52 @@ const staticDataLineColor = [
     "#f5007e"
 ];
 
-let staticDataSeries = [];
-let staticDataXTitles = [];
+let staticDataSeries = [];  // vo key 값.
+let liveDataSeries = [];  // vo key 값.
 
-$(document).ready(function () {
-    requestStaticData();
-});
+// ==================== 정적 차트 =======================
+// 정적 데이터 호출 및 차트 draw
+function callStaticDataChart() {
+    fetch("/getStaticData", {
+        method: "POST",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            startTime: "12:00:00",
+            endTime: "",
+            tableName: "NVT6"
+        }),
+    }).then((res) => {
+        return res.json();
+    }).then((data) => {
+        // series 데이터 셋팅
+        for (let i = 0; i < dataKeys.length; i++) {
+            staticDataSeries[i] = {
+                name: dataTitles[i],
+                color: graghLineColors[i],
+                data: []
+            }                
+        }
 
+        if (data != null && data.length > 0) {
+            for(let i = 0 ; i < data.length ; i++) {
+                for (let j = 0; j < dataKeys.length; j++) {
+                    staticDataSeries[j].data.push(data[i][dataKeys[j]]);
+                }
+            }
+        }
+
+        createStaticChart();
+    });
+}
+
+// 정적 데이터 차트
 function createStaticChart() {
     let staticChart = new Highcharts.chart({
         chart: {
-            renderTo: 'static_data_container',
+            renderTo: 'staticChart',
             type: 'spline',
         },
         title: {
@@ -122,7 +164,7 @@ function createStaticChart() {
         legend: {
 			enabled: true
             , itemStyle: {
-                color: '#ffffff'
+                color: '#000000'
             }
         },
         Axis: {
@@ -141,59 +183,19 @@ function createStaticChart() {
     staticDataXTitles = [];
 }
 
+// ==================== 실시간 차트 =======================
 
-function requestStaticData() {
-    fetch("/getStaticData", {
-        method: "POST",
-        cache: "no-cache",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            startTime: "12:00:00",
-            endTime: "",
-            tableName: "NVT6"
-        }),
-    }).then((res) => {
-        return res.json();
-    }).then((data) => {
-        // series 데이터 셋팅
-        for (let i = 0; i < staticDataKeys.length; i++) {
-            staticDataSeries[i] = {
-                name: staticDataTitle[i],
-                color: staticDataLineColor[i],
-                data: []
-            }                
-        }
-
-        if (data != null && data.length > 0) {
-            data.forEach((element, index) => {
-                for (let i = 0; i < staticDataKeys.length; i++) {
-                    staticDataSeries[i].data.unshift(element[staticDataKeys[i]]);
-                }
-            });
-        }
-
-        // chart 생성
-        createStaticChart();
-    });
-}
-
-let liveChart = new Highcharts.Chart({
+// 실시간 데이터 차트는 화면에 먼저 표시 후 그림.
+realTimeChart = new Highcharts.Chart({
     chart: {
-        renderTo: 'container-remodel2',
+        renderTo: 'realTimeChart',
         defaultSeriesType: 'spline',
         events: {
-            load: requestLiveData
+            load: callRealTimeDataChart
         }
     },
     title: {
         text: 'Live random data'
-    },
-    xAxis: {
-        type: 'datetime',
-        tickPixelInterval: 100,
-        maxZoom: 30000 * 1000
     },
     yAxis: {
         minPadding: 0.1,
@@ -203,27 +205,48 @@ let liveChart = new Highcharts.Chart({
             margin: 80
         }
     },
-    series: [{
-        name: 'Random data',
-        data: []
-    }]
+    series: []
 });
 
-function requestLiveData() {
-    fetch("getLiveData", {cache: "no-cache"})
-    .then((res) => {
+// 실시간 데이터 호출 및 차트 draw
+function callRealTimeDataChart() {
+    fetch("/getLiveData", {
+        method: "POST",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            pointTime: "",
+            tableName: "NVT9"
+        }),
+    }).then((res) => {
         return res.json();
-    })
-    .then((point) => {
-        var series = chart.series[0];
+    }).then((data) => {
+        let date = new Date();
+        let localTime = date.toLocaleTimeString();
 
-        // shift if the series is longer than 30000
-        var shift = series.data.length > 30000; 
+        // chart에 series set
+        for (let i = 0; i < dataKeys.length; i++) {
+            realTimeChart.series[i] = {
+                name: dataTitles[i],
+                color: graghLineColors[i],
+                data: []
+            }                
+        }
 
         // add the point
-        chart.series[0].addPoint(point[0].spl_CH1_1KHz, true, shift);
+        for (let i = 0; i < dataKeys.length; i++) {
+            // 데이터가 10개 이상부터는 이동
+            let shift = realTimeChart.series[i].data.length > 10
+
+            realTimeChart.series[i].addPoint(data[0][dataKeys[i]], true, shift);
+
+            //realTimeChart.series[i].addPoint(data[0], true, shift);
+        }
 
         // call it again after one second
-        setTimeout(requestLiveData, 1000);
+        setTimeout(callRealTimeDataChart, 1000);
     });
 }
+
