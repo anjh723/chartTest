@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = { "/", "", "index", "login" })
+    @GetMapping(value = "login")
     public String main(HttpSession session) {
         return userService.sessionCheck(session, "redirect:/intro");
     }
