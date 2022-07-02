@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class NVT {
     private long uid;
+    private int time;
     private float splCh1Total;
     private float splCh1_20hz;
     private float splCh1_25hz;

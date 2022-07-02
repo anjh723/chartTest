@@ -10,6 +10,10 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       <script src="js/libs/highcharts/highcharts.js"></script>
       <script src="js/libs/highcharts/modules/exporting.js"></script>
+      <script src="js/libs/highcharts/modules/accessibility.js"></script>
+      <script src="js/libs/highcharts/modules/exporting.js"></script>
+      <script src="js/libs/highcharts/modules/boost.js"></script>
+      <script src="js/libs/highcharts/modules/boost-canvas.js"></script>
 </head>
 <style>
     .chart_container {
@@ -20,31 +24,31 @@
     .chart_div {
         display: block;
         width: 1000px;
-        height: 300px;
+        height: 600px;
         overflow: visible;
     }
 
     #chart {
         display: flex;
         width: 1000px;
-        height: 400px;
+        height: 600px;
     }
 </style>
 <body>
 <div class="container">
-      <h3>Tabs With Dropdown Menu</h3>
+      <h3>Chart test page</h3>
       <ul class="nav nav-tabs">
-            <li class="tab active"><a href="#">Home</a></li>
-            <!-- <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1 <span class="caret"></span></a>
+            <li class="tab home active"><a href="#">Home</a></li>
+            <li class="dropdown first">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">highcharts<span class="caret"></span></a>
                   <ul class="dropdown-menu"f>
-                        <li><a href="#">Submenu 1-1</a></li>
-                        <li><a href="#">Submenu 1-2</a></li>
-                        <li><a href="#">Submenu 1-3</a></li>
+                        <li class="dropdown first first"><a href="#">static chart test (data 3000)</a></li>
+                        <li class="dropdown first second"><a href="#">live chart test (data 1000 + liveData)</a></li>
+                        <li class="dropdown first third"><a href="#">live chart test (liveData)</a></li>
                   </ul>
-            </li> -->
-            <li class="tab first"><a href="#">static chart test</a></li>
-            <li class="tab second"><a href="#">live chart test</a></li>
+            </li>
+            <li class="dropdown second"><a href="#">echarts</a></li>
+            <li class="dropdown third"><a href="#">googlecharts</a></li>
       </ul>
       <div class="chart_container">
             <div class="chart_div">

@@ -4,6 +4,7 @@
 
     <resultMap type="com.lg.dx.app.menu.monitoring.vo.NVT" id="NVTMap">
         <id property="uid" column="UID" />
+        <result property="time" column="TIME" />
         <result property="splCh1Total" column="SPL_CH1_TOTAL" />
         <result property="splCh1_20hz" column="SPL_CH1_20Hz" />
         <result property="splCh1_25hz" column="SPL_CH1_25Hz" />
@@ -133,6 +134,7 @@
     <select id="getStaticData" parameterType="hashMap" resultMap="NVTMap">
         SELECT
             n.UID,
+            n.TIME,
             n.SPL_CH1_TOTAL,    -- CH1
             n.SPL_CH1_20Hz,
             n.SPL_CH1_25Hz,
@@ -327,12 +329,15 @@
             n.SPL_CH6_20KHz
         FROM 
             DXLGE.dbo.${tableName} n
+        WHERE
+            n.TIME BETWEEN ${startTime} AND ${endTime}
         ORDER BY 
             n.UID ASC
     </select>
 
     <select id="getLiveData" parameterType="hashMap" resultMap="NVTMap">
         SELECT n.UID,
+            n.TIME,
             n.SPL_CH1_TOTAL,    -- CH1
             n.SPL_CH1_20Hz,
             n.SPL_CH1_25Hz,
@@ -527,6 +532,8 @@
             n.SPL_CH6_20KHz
         FROM 
             DXLGE.dbo.${tableName} n
+        WHERE
+            n.TIME = ${livePointTime}
         ORDER BY 
             n.UID DESC
         OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY
