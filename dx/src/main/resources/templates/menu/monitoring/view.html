@@ -14,7 +14,13 @@
         justify-content: center;
     }
 
-    #StaticDataContainer {
+    #staticChart {
+        display: flex;
+        width: 1000px;
+        height: 400px;
+    }
+
+    #realTimeChart {
         display: flex;
         width: 1000px;
         height: 400px;
@@ -81,7 +87,13 @@
                 <div class="chart__container">
                     <div class="chart__div1">
                         <figure class="highcharts-figure">
-                            <div id="static_data_container"></div>
+                            <div id="staticChart"></div>
+                        </figure>
+                    </div>
+
+                    <div class="chart__div1">
+                        <figure class="highcharts-figure">
+                            <div id="realTimeChart"></div>
                         </figure>
                     </div>
 

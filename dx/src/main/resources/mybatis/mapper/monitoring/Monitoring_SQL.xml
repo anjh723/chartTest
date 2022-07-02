@@ -529,5 +529,6 @@
             DXLGE.dbo.${tableName} n
         ORDER BY 
             n.UID DESC
+        OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY
     </select>
 </mapper>
