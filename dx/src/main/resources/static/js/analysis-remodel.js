@@ -109,11 +109,11 @@ const graghLineColors = [
 
 let dataSeries = [];  // vo key 값.
 let chart; // chart
-let livePointTime = 0;// live data호출시 가져올 데이터 시점.
-let liveDataStopFlag = false;   // 동기/비동기 문제.
+let livePointTime = 0;  // live data호출시 가져올 데이터 시점.
+let liveDataTimer = 0;  // live data호출시 동작할 timer
 
 // chart 생성
-function createChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
+function createHighChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
     let chartTitle;
     let chartEvent;
     livePointTime = liveStartTime;
@@ -202,10 +202,10 @@ function createChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
  * @param {*} isAll (검색조건: 전체 데이터 출력)
  * @param {*} startTime (검색조건: 시작시간)
  * @param {*} endTime (검색조건: 종료시간)
- * @param {*} isAddLiveData (실시간 데이터 추가)
+ * @param {*} isAddLiveData (실시간 데이터 추가 여부)
  * @param {*} liveStartTime (실시간 데이터 start 지점, 종료시간의 데이터 보다 이후여야한다.)
  */
-function callDataAndDrawChart(tableName, isAll, startTime, endTime, isAddLiveData, liveStartTime, shiftCnt) {
+function callDataAndDrawChart(chartType, tableName, isAll, startTime, endTime, isAddLiveData, liveStartTime, shiftCnt) {
     fetch("/getStaticData", {
         method: "POST",
         cache: "no-cache",
@@ -222,17 +222,17 @@ function callDataAndDrawChart(tableName, isAll, startTime, endTime, isAddLiveDat
         return res.json();
     }).then((data) => {
         // 차트 생성
-        createChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data);
+        if (chartType === 'highcharts') {
+            createHighChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data);
+        }
     });
 }
 /**
  * @desc: 실시간 데이터 호출 및 draw
  * 
  * @param {*} tableName (검색 테이블 명)
- * @param {*} startTime (검색조건: 시작시간)
- * @param {*} endTime (검색조건: 종료시간)
- * @param {*} isAddLiveData (실시간 데이터 추가)
- * @param {*} pointTime (실시간 데이터 start 지점, 종료시간의 데이터 보다 이후여야한다.)
+ * @param {*} isAddLiveData (실시간 데이터 추가 여부)
+ * @param {*} shiftCnt (데이터 개수가 일정수 이상이면 옆으로 넘김)
  */
 function callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt) {
     fetch("/getLiveData", {
@@ -266,7 +266,8 @@ function callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt) {
 
         // call it again after one second
         livePointTime++;
-        setTimeout(callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt), 1000);
+        if (liveDataTimer !== -1) 
+            liveDataTimer = setTimeout(callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt), 1000);
     });
 }
 

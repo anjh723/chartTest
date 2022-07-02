@@ -30,16 +30,26 @@ $(document).ready(function () {
 });
 
 function clickedMenu(menuId) {
-    if (menuId.includes('dropdown first first')) {
+    if (menuId.includes('dropdown first static')) {
+        clearTimeout(liveDataTimer);
+        liveDataTimer = -1;
         liveDataStopFlag = true;
-        callDataAndDrawChart('NVT10', false, 1, 3000, false, 0);
-    } else if (menuId.includes('dropdown first second')) {
+        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 3000, false, 0);
+    } else if (menuId.includes('dropdown first merge')) {
+        liveDataTimer = 0;
         liveDataStopFlag = false;
-        callDataAndDrawChart('NVT10', false, 1, 900, true, 901, 900);
-    } else if (menuId.includes('dropdown first third')) {
+        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 900, true, 901, 900);
+    } else if (menuId.includes('dropdown first live')) {
+        liveDataTimer = 0;
         liveDataStopFlag = false;
-        callDataAndDrawChart('NVT10', false, 1, 1, true, 901, 900);
+        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 1, true, 901, 900);
     } else if (menuId.includes('tab home')) {
+        clearTimeout(liveDataTimer);
+        liveDataTimer = -1;
         document.getElementById('chart').innerHTML = "";
+    } else {
+        if (menuId.includes('dropdown'))
+            return;    
+        document.getElementById('chart').innerHTML = "<h2>준비중입니다.</h2>";
     }
 }
