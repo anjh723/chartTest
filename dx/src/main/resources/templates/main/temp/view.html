@@ -8,12 +8,21 @@
       <link rel="stylesheet" th:href="@{/css/chart/chart.css}" type="text/css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <!-- highchart libs -->
       <script src="js/libs/highcharts/highcharts.js"></script>
       <script src="js/libs/highcharts/modules/exporting.js"></script>
       <script src="js/libs/highcharts/modules/accessibility.js"></script>
       <script src="js/libs/highcharts/modules/exporting.js"></script>
       <script src="js/libs/highcharts/modules/boost.js"></script>
       <script src="js/libs/highcharts/modules/boost-canvas.js"></script>
+      
+      <!-- echart libs -->
+      <script src="js/libs/echart/echarts.min.js"></script>
+
+      <!-- uplot libs -->
+      <link rel="stylesheet" href="js/libs/uplot/uPlot.min.css" type="text/css">
+      <script src="js/libs/uplot/uPlot.iife.js"></script>
 </head>
 <style>
     .chart_container {
@@ -50,9 +59,9 @@
             <li class="dropdown second">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">echarts<span class="caret"></span></a>
                   <ul class="dropdown-menu" f>
-                        <li class="dropdown second first"><a href="#">static chart test (data 3000)</a></li>
-                        <li class="dropdown second second"><a href="#">live chart test (data 1000 + liveData)</a></li>
-                        <li class="dropdown second third"><a href="#">live chart test (liveData)</a></li>
+                        <li class="dropdown second static"><a href="#">static chart test (data 3000)</a></li>
+                        <li class="dropdown second merge"><a href="#">live chart test (data 1000 + liveData)</a></li>
+                        <li class="dropdown second live"><a href="#">live chart test (liveData)</a></li>
                   </ul>
             </li>
             <li class="dropdown third">
@@ -73,6 +82,8 @@
       </div>
 </div>
 </body>
-<script src="js/analysis-remodel.js" rel="script"></script>
-<script src="js/main/temp/temp.js" rel="script"></script>
+<script src="js/main/uplot/uplotHelper.js" rel="script"></script>
+<script src="js/main/highchart/highchartHelper.js" rel="script"></script>
+<script src="js/main/common/cmmchartHelper.js" rel="script"></script>
+<script src="js/main/common/menuHelper.js" rel="script"></script>
 </html>

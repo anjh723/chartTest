@@ -1,15 +1,22 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "cSpell.words": [
+        "bbox",
         "crosshairs",
+        "datazoom",
         "datetime",
         "dropdowns",
+        "echart",
         "echarts",
         "googlecharts",
         "gragh",
+        "highchart",
         "Highcharts",
         "menufunc",
         "Servlet",
-        "topbar"
+        "topbar",
+        "uplot",
+        "uplotchart",
+        "uplotcharts"
     ]
 }
