@@ -1,6 +1,13 @@
 let echartOption;
+let echart;
 
-// ============================== highcharts ===================================
+function autoFontSize() {
+    let width = document.getElementById('chart').offsetWidth;
+    let newFontSize = Math.round(width / 11);
+    return newFontSize;
+  };
+
+// ============================== echart ===================================
 function createEChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
     let dataSeries = [];  // vo key 값.
     let chartTitle;
@@ -19,10 +26,10 @@ function createEChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
     // series 데이터 셋팅
     for (let i = 0; i < dataKeys.length; i++) {
         dataSeries[i] = {
-            id: dataTitles[i],
-            boostThreshold: 1,
-            turboThreshold: 0,
-            animation: false,
+            name: dataTitles[i],
+            type: 'line',
+            showSymbol: false,
+            zlevel: i + 1,
             data: []
         }                
     }
@@ -30,46 +37,38 @@ function createEChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
     if (data != null && data.length > 0) {
         for(let i = 0 ; i < data.length ; i++) {
             for (let j = 0; j < dataKeys.length; j++) {
-                dataSeries[j].data.push(data[i][dataKeys[j]]);
+                dataSeries[j].data.push([data[i].time, data[i][dataKeys[j]]]);
             }
         }
     } 
 
-    chart = echarts.init(document.getElementById('chart'),
-        null,
-        {
-            renderer: 'canvas',
-            useDirtyRect: false
-        }
-    );
+    echart = echarts.init(document.getElementById('chart'));
 
     echartOption = {
         title: {
             text: chartTitle
         },
         toolbox: {
-            show: true,
-            feature: {
-                dataZoom: {
-                },
-                dataView: {
-                    readOnly: false
-                },
-                restore: {},
-                saveAsImage: {}
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['bar','line']},
+                restore : {show: true},
+                saveAsImage : {show: true}
             }
         },
         tooltip: {
             trigger: 'axis',
-            formatter: function () {
-                let s = '<b>' + this.x + '</b>';
-                $.each(this.points, function (i, point) {
-                    s += '<br/>' + point.series.name + ': ' +
-                        point.y;
-                });
-                return s;
+            axisPointer: {
+                type: 'cross',
+                label: {
+                  backgroundColor: '#6a7985'
+                }
             },
-            shared: true
+            formatter: function (params) {
+                return `${params.seriesName}<br />`;
+            }
         },
         dataZoom: [
             {
@@ -78,16 +77,22 @@ function createEChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
                 end: dataSeries.length
             }
         ],
-        xAxis: [
+        grid: {
+            left: '5%',
+            right: '10%',
+            bottom: '10%',
+            containLabel: true
+        },
+        xAxis : [
             {
-                type: 'time',
+                type : 'value',
             }
         ],
         yAxis : [
             {
                 type : 'value',
                 axisLabel : {
-                    formatter: '{value} $'
+                    formatter: '{value} db'
                 }
             }
         ],
@@ -96,18 +101,12 @@ function createEChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
                 boostThreshold: 1
             }
         },
-        boost: {
-            enabled: true,
-            useGPUTranslations: true
-        },
         series: dataSeries
     };
 
 
-    chart.setOption(echartOption);
+    echart.setOption(echartOption);
     
     // 데이터 초기화
     dataSeries = [];
 }
-
-window.addEventListener('resize', chart.resize);

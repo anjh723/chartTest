@@ -30,8 +30,18 @@ $(document).ready(function () {
 });
 
 function clickedMenu(menuId) {
-    document.getElementById('chart').innerHTML = "";
-    
+    const chartDom = document.getElementById('chart');
+
+    // chart 영역 안의 자식요소 모두 삭제
+    chartDom.innerHTML = "";
+
+    // chart div의 id를 제외한 모든 attr 삭제
+    for(let i = 0 ; i < chartDom.attributes.length ; i++) {
+        if (chartDom.attributes[i].name !== 'id') {
+            chartDom.removeAttribute(chartDom.attributes[i].name);
+        }
+    }
+
     // ======================== highchart ========================
     if (menuId.includes('dropdown first static')) {
         clearTimeout(liveDataTimer);
@@ -84,13 +94,13 @@ function clickedMenu(menuId) {
     else if (menuId.includes('tab home')) {
         clearTimeout(liveDataTimer);
         liveDataTimer = -1;
-        document.getElementById('chart').innerHTML = "";
+        chartDom.innerHTML = "";
     }
     
     // ========================== others ==========================
     else {
         if (menuId.includes('dropdown'))
             return;    
-        document.getElementById('chart').innerHTML = "<h2>준비중입니다.</h2>";
+        chartDom.innerHTML = "<h2>준비중입니다.</h2>";
     }
 }
