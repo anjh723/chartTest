@@ -332,7 +332,7 @@
         WHERE
             n.TIME BETWEEN ${startTime} AND ${endTime}
         ORDER BY 
-            n.UID ASC
+            n.TIME ASC
     </select>
 
     <select id="getLiveData" parameterType="hashMap" resultMap="NVTMap">
@@ -535,7 +535,7 @@
         WHERE
             n.TIME = ${livePointTime}
         ORDER BY 
-            n.UID DESC
+            n.TIME DESC
         OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY
     </select>
 </mapper>

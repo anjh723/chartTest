@@ -1,5 +1,7 @@
+let highchart; // chart
+
 // ============================== highcharts ===================================
-function createHighChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
+function createHighChart(chartType, tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
     let dataSeries = [];  // vo key 값.
     let chartTitle;
     let chartEvent;
@@ -8,7 +10,7 @@ function createHighChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data
     if (isAddLiveData) {
         chartTitle = tableName + ' live data graph';
         chartEvent = {
-                    load: callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt)
+                    load: callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shiftCnt)
                 }
     } else {
         chartTitle = tableName + ' static data graph';
@@ -33,7 +35,7 @@ function createHighChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data
         }
     } 
 
-    chart = new Highcharts.chart({
+    highchart = new Highcharts.chart({
         chart: {
             renderTo: 'chart',
             type: 'spline',

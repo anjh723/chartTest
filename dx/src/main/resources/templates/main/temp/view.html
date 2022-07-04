@@ -25,23 +25,29 @@
       <script src="js/libs/uplot/uPlot.iife.js"></script>
 </head>
 <style>
-    .chart_container {
-        width: 1300px;
-        height: 1300px;
-    }
+      .chart_container {
+            text-align: center;
+            width: 1300px;
+            height: 1300px;
+      }
 
-    .chart_div {
-        display: block;
-        width: 1000px;
-        height: 600px;
-        overflow: visible;
-    }
+      .chart_div {
+            text-align: center;
+            display: block;
+            width: 1300px;
+            height: 1300px;
+            overflow: visible;
+      }
 
-    #chart {
-        display: flex;
-        width: 1000px;
-        height: 600px;
-    }
+      #chart {
+            top: 20%;
+            left: 20%;
+            text-align: center;
+            display: flex;
+            position: absolute;
+            width: 1000px;
+            height: 600px;
+      }
 </style>
 <body>
 <div class="container">
@@ -73,11 +79,10 @@
                   </ul>
             </li>
       </ul>
+
       <div class="chart_container">
             <div class="chart_div">
-                  <figure class="highcharts-figure">
-                        <div id="chart"></div>
-                  </figure>
+                  <div id="chart"></div>
             </div>
       </div>
 </div>

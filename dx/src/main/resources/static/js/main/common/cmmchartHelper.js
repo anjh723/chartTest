@@ -107,13 +107,14 @@ const graghLineColors = [
     "#f5007e"
 ];
 
-let chart; // chart
+
 let livePointTime = 0;  // live data호출시 가져올 데이터 시점.
 let liveDataTimer = 0;  // live data호출시 동작할 timer
 
 /**
  * @desc: 정적 데이터 호출 및 차트 draw
  * 
+ * @param {*} chartType (차트 종류)
  * @param {*} tableName (검색 테이블 명)
  * @param {*} isAll (검색조건: 전체 데이터 출력)
  * @param {*} startTime (검색조건: 시작시간)
@@ -139,22 +140,23 @@ function callDataAndDrawChart(chartType, tableName, isAll, startTime, endTime, i
     }).then((data) => {
         // 차트 생성
         if (chartType === 'highcharts') {
-            createHighChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data);
+            createHighChart(chartType, tableName, isAddLiveData, liveStartTime, shiftCnt, data);
         } else if (chartType === 'echarts') {
-            createEChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data);
+            createEChart(chartType, tableName, isAddLiveData, liveStartTime, shiftCnt, data);
         } else if (chartType === 'uplotcharts') {
-            createUplotChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data);
+            createUplotChart(chartType, tableName, isAddLiveData, liveStartTime, shiftCnt, data);
         }
     });
 }
 /**
  * @desc: 실시간 데이터 호출 및 draw
  * 
+ * @param {*} chartType (차트 종류)
  * @param {*} tableName (검색 테이블 명)
  * @param {*} isAddLiveData (실시간 데이터 추가 여부)
  * @param {*} shiftCnt (데이터 개수가 일정수 이상이면 옆으로 넘김)
  */
-function callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt) {
+function callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shiftCnt) {
     fetch("/getLiveData", {
         method: "POST",
         cache: "no-cache",
@@ -168,17 +170,32 @@ function callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt) {
     }).then((res) => {
         return res.json();
     }).then((data) => {
-        if (chart === undefined || !isAddLiveData) {
+        if (!isAddLiveData) {
             return;
         }
 
         // add the point
         for (let i = 0; i < dataKeys.length; i++) {
             if (isAddLiveData) {
-                // 데이터가 10개 이상부터는 이동
-                let shift = chart.series[i].data.length > shiftCnt
+                // highchart
+                if (chartType === 'highcharts') {
+                    // 데이터가 shiftCnt개 이상부터는 이동
+                    let shift = highchart.series[i].data.length > shiftCnt
+                    highchart.series[i].addPoint(data[0][dataKeys[i]], true, shift);
+                }
+                
+                // echart
+                else if (chartType === 'echarts') {
+                    // 데이터가 shiftCnt개 이상부터는 이동
+                    let shift = echartOption.series[i].data.length > shiftCnt
 
-                chart.series[i].addPoint(data[0][dataKeys[i]], true, shift);
+                    // 가장 왼쪽의 데이터 제거
+                    if (shift) {
+                        echartOption.series[i].data.shift();
+                    }
+
+                    echartOption.series[i].data.push([data[0].time, data[0][dataKeys[i]]]);
+                }
             } else {
                 return;
             }
@@ -186,7 +203,15 @@ function callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt) {
 
         // call it again after one second
         livePointTime++;
-        if (liveDataTimer !== -1) 
-            liveDataTimer = setTimeout(callRealTimeDataAndDrawChart(tableName, isAddLiveData, shiftCnt), 1000);
+        if (liveDataTimer !== -1) {
+            if (chartType === 'highcharts') {
+                // nothing
+            }
+            else if (chartType === 'echarts') {
+                echart.setOption(echartOption);
+            }
+
+            liveDataTimer = setTimeout(callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shiftCnt), 1000);
+        }
     });
 }

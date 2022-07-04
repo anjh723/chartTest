@@ -47,15 +47,15 @@ function clickedMenu(menuId) {
         clearTimeout(liveDataTimer);
         liveDataTimer = -1;
         liveDataStopFlag = true;
-        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 3000, false, 0);
+        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 3000, false);
     } else if (menuId.includes('dropdown first merge')) {
         liveDataTimer = 0;
         liveDataStopFlag = false;
-        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 900, true, 901, 900);
+        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 1000, true, 901, 900);
     } else if (menuId.includes('dropdown first live')) {
         liveDataTimer = 0;
         liveDataStopFlag = false;
-        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 1, true, 901, 900);
+        callDataAndDrawChart('highcharts', 'NVT10', false, 1, 1, true, 1, 1000);
     } 
         
     // ======================== echart ========================
@@ -63,15 +63,15 @@ function clickedMenu(menuId) {
         clearTimeout(liveDataTimer);
         liveDataTimer = -1;
         liveDataStopFlag = true;
-        callDataAndDrawChart('echarts', 'NVT10', false, 1, 3000, false, 0);
+        callDataAndDrawChart('echarts', 'NVT10', false, 1, 3000, false);
     } else if (menuId.includes('dropdown second merge')) {
         liveDataTimer = 0;
         liveDataStopFlag = false;
-        callDataAndDrawChart('echarts', 'NVT10', false, 1, 900, true, 901, 900);
+        callDataAndDrawChart('echarts', 'NVT10', false, 1, 1000, true, 1001, 1000);
     } else if (menuId.includes('dropdown second live')) {
         liveDataTimer = 0;
         liveDataStopFlag = false;
-        callDataAndDrawChart('echarts', 'NVT10', false, 1, 1, true, 901, 900);
+        callDataAndDrawChart('echarts', 'NVT10', false, 1, 1, true, 1001, 1000);
     } 
         
     // ======================== uplotchart ========================
@@ -79,15 +79,15 @@ function clickedMenu(menuId) {
         clearTimeout(liveDataTimer);
         liveDataTimer = -1;
         liveDataStopFlag = true;
-        callDataAndDrawChart('uplotcharts', 'NVT10', false, 1, 3000, false, 0);
+        callDataAndDrawChart('uplotcharts', 'NVT10', false, 1, 3000, false);
     } else if (menuId.includes('dropdown third merge')) {
         liveDataTimer = 0;
         liveDataStopFlag = false;
-        callDataAndDrawChart('uplotcharts', 'NVT10', false, 1, 900, true, 901, 900);
+        callDataAndDrawChart('uplotcharts', 'NVT10', false, 1, 900, true, 901, 10);
     } else if (menuId.includes('dropdown third live')) {
         liveDataTimer = 0;
         liveDataStopFlag = false;
-        callDataAndDrawChart('uplotcharts', 'NVT10', false, 1, 1, true, 901, 900);
+        callDataAndDrawChart('uplotcharts', 'NVT10', false, 1, 1, true, 901, 10);
     } 
     
     // =========================== home ===========================
