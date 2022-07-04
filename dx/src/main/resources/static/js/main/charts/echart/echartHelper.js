@@ -100,8 +100,8 @@ function createEChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
             }
         ],
         grid: {
-            left: '5%',
-            right: '10%',
+            left: '0%',
+            right: '0%',
             bottom: '10%',
             containLabel: true
         },
