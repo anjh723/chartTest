@@ -60,15 +60,37 @@ function createEChart(tableName, isAddLiveData, liveStartTime, shiftCnt, data) {
         },
         tooltip: {
             trigger: 'axis',
+            position: function(point, params, dom, rect, size){
+                //Where point is the current mouse position, and there are two attributes in size: viewSize and contentSize, which are the size of the outer div and tooltip prompt box respectively
+                var x = point[0];//
+                var y = point[1];
+                var viewWidth = size.viewSize[0];
+                var viewHeight = size.viewSize[1];
+                var boxWidth = size.contentSize[0];
+                var boxHeight = size.contentSize[1];
+                var posX = 0;//x coordinate position
+                var posY = 0;//y coordinate position
+                
+                if(x<boxWidth){//The left side cannot be released
+                    posX = 5;    
+                }else{//Left down
+                    posX = x-boxWidth; 
+                }
+                
+                if(y<boxHeight){//Can't let go of the top
+                    posY = 5; 
+                }else{//The upper side can be put down
+                    posY = y-boxHeight;
+                }
+                
+                return [posX,posY];
+            },
             axisPointer: {
                 type: 'cross',
                 label: {
                   backgroundColor: '#6a7985'
                 }
             },
-            formatter: function (params) {
-                return `${params.seriesName}<br />`;
-            }
         },
         dataZoom: [
             {
