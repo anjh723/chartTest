@@ -179,15 +179,20 @@ function callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shift
             for (let i = 0; i < dataKeys.length; i++) {
                 if (isAddLiveData) {
                     // highchart
-                    if (chartType === 'highcharts') {
+                    if (chartType === 'highcharts' 
+                        && highchart !== null 
+                        && highchart !== undefined) {
                         // 데이터가 shiftCnt개 이상부터는 이동
                         let shift = highchart.series[i].data.length > shiftCnt
                         highchart.series[i].addPoint(data[0][dataKeys[i]], true, shift);
                     }
                     
                     // echart
-                    else if (chartType === 'echarts') {
-                        // 데이터가 shiftCnt개 이상부터는 이동
+                    else if (chartType === 'echarts' 
+                        && echartOption !== null 
+                        && echartOption !== undefined) {
+                        
+                            // 데이터가 shiftCnt개 이상부터는 이동
                         let shift = echartOption.series[i].data.length > shiftCnt
     
                         // 가장 왼쪽의 데이터 제거
