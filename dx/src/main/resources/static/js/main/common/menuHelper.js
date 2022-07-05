@@ -42,6 +42,11 @@ function clickedMenu(menuId) {
         }
     }
 
+    // chart obj 초기화
+    highchart = null;
+    echart = null;
+    echartOption = null;
+
     // ======================== highchart ========================
     if (menuId.includes('dropdown first static')) {
         clearTimeout(liveDataTimer);
