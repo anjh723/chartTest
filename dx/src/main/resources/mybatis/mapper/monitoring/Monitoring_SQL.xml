@@ -133,8 +133,8 @@
 
     <select id="getStaticData" parameterType="hashMap" resultMap="NVTMap">
         SELECT 
-            DISTINCT n.TIME,
             n.UID,
+            n.TIME,
             n.SPL_CH1_TOTAL,    -- CH1
             n.SPL_CH1_20Hz,
             n.SPL_CH1_25Hz,
@@ -330,9 +330,9 @@
         FROM 
             DXLGE.dbo.${tableName} n
         WHERE
-            n.TIME BETWEEN ${startTime} AND ${endTime}
+            n.uid BETWEEN ${startTime} AND ${endTime}
         ORDER BY 
-            n.TIME ASC
+            n.uid ASC
     </select>
 
     <select id="getLiveData" parameterType="hashMap" resultMap="NVTMap">
@@ -533,9 +533,11 @@
             n.SPL_CH6_20KHz
         FROM 
             DXLGE.dbo.${tableName} n
-        WHERE
-            n.TIME = ${livePointTime}
-        ORDER BY 
-            n.TIME DESC
+        -- WHERE
+            -- n.TIME = ${livePointTime}
+        -- ORDER BY 
+            -- n.TIME DESC
+        ORDER BY
+            n.UID DESC
     </select>
 </mapper>

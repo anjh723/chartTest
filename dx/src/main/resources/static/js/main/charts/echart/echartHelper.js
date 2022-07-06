@@ -34,7 +34,12 @@ function createEChart(chartType, tableName, isAddLiveData, liveStartTime, shiftC
     if (data != null && data.length > 0) {
         for(let i = 0 ; i < data.length ; i++) {
             for (let j = 0; j < dataKeys.length; j++) {
-                dataSeries[j].data.push([data[i].time, data[i][dataKeys[j]]]);
+                // x축의 데이터를 time 기준
+                // dataSeries[j].data.push([data[i].time, data[i][dataKeys[j]]]);
+
+                
+                // x축의 데이터를 uid기준
+                dataSeries[j].data.push([data[i].uid, data[i][dataKeys[j]]]);
             }
         }
     } 

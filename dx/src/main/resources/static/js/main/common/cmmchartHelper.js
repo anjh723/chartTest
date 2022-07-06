@@ -192,7 +192,7 @@ function callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shift
                         && echartOption !== null 
                         && echartOption !== undefined) {
                         
-                            // 데이터가 shiftCnt개 이상부터는 이동
+                        // 데이터가 shiftCnt개 이상부터는 이동
                         let shift = echartOption.series[i].data.length > shiftCnt
     
                         // 가장 왼쪽의 데이터 제거
@@ -201,11 +201,16 @@ function callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shift
                         }
 
                         // 데이터가 없을경우 임의 데이터 set
-                        if (data[0][dataKeys[i]] === undefined || data[0][dataKeys[i]] === '' || data[0][dataKeys[i]] === null) {
+                        /* if (data[0][dataKeys[i]] === undefined || data[0][dataKeys[i]] === '' || data[0][dataKeys[i]] === null) {
                             data[0][dataKeys[i]] = 0;
-                        }
+                        } */
 
-                        echartOption.series[i].data.push([data[0].time, data[0][dataKeys[i]]]);
+                        // x축의 데이터를 time 기준으로 실시간 차트 그리기
+                        // echartOption.series[i].data.push([data[0].time, data[0][dataKeys[i]]]);
+
+                        
+                        // x축의 데이터를 가장 마지막 uid로 실시간 차트 그리기
+                        echartOption.series[i].data.push([data[0].uid, data[0][dataKeys[i]]]);
                     }
                 } else {
                     return;
