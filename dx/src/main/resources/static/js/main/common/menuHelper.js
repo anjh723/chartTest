@@ -74,11 +74,11 @@ function clickedMenu(menuId) {
     } else if (menuId.includes('dropdown second merge')) {
         liveDataTimer = 1;
         liveDataStopFlag = false;
-        callDataAndDrawChart('echarts', 'NVT10', false, 1, 7200, true, 7201, 3000);
+        callDataAndDrawChart('echarts', 'NVT10', false, 1, 7200, true, 7201, 7200);
     } else if (menuId.includes('dropdown second live')) {
         liveDataTimer = 1;
         liveDataStopFlag = false;
-        callDataAndDrawChart('echarts', 'NVT10', false, 1, 1, true, 2, 1000);
+        callDataAndDrawChart('echarts', 'NVT10', false, 1, 1, true, 2, 7200);
     } 
         
     // ======================== uplotchart ========================
