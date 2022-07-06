@@ -109,7 +109,7 @@ const graghLineColors = [
 
 
 let livePointTime = 0;  // live data호출시 가져올 데이터 시점.
-let liveDataTimer = 0;  // live data호출시 동작할 timer
+let liveDataTimer = 1;  // live data호출시 동작할 timer
 
 /**
  * @desc: 정적 데이터 호출 및 차트 draw
@@ -199,7 +199,12 @@ function callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shift
                         if (shift) {
                             echartOption.series[i].data.shift();
                         }
-    
+
+                        // 데이터가 없을경우 임의 데이터 set
+                        if (data[0][dataKeys[i]] === undefined || data[0][dataKeys[i]] === '' || data[0][dataKeys[i]] === null) {
+                            data[0][dataKeys[i]] = 0;
+                        }
+
                         echartOption.series[i].data.push([data[0].time, data[0][dataKeys[i]]]);
                     }
                 } else {
@@ -218,7 +223,7 @@ function callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shift
                 echart.setOption(echartOption);
             }
 
-            liveDataTimer = setTimeout(callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shiftCnt), 1000);
+            liveDataTimer = setTimeout(() => callRealTimeDataAndDrawChart(chartType, tableName, isAddLiveData, shiftCnt), 1000);
         }
     });
 }

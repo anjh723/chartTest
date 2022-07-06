@@ -27,26 +27,25 @@
 <style>
       .chart_container {
             text-align: center;
-            width: 1300px;
-            height: 1300px;
+            width: 1000px;
+            height: 900px;
       }
 
       .chart_div {
             text-align: center;
             display: block;
-            width: 1300px;
-            height: 1300px;
+            width: 1000px;
+            height: 900px;
             overflow: visible;
       }
 
       #chart {
             top: 20%;
-            left: 20%;
             text-align: center;
             display: flex;
             position: absolute;
             width: 1000px;
-            height: 600px;
+            height: 900px;
       }
 </style>
 <body>
@@ -54,7 +53,7 @@
       <h3>Chart test page</h3>
       <ul class="nav nav-tabs">
             <li class="tab home active"><a href="#">Home</a></li>
-            <li class="dropdown first">
+            <li class="dropdown menu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">highcharts<span class="caret"></span></a>
                   <ul class="dropdown-menu"f>
                         <li class="dropdown first static"><a href="#">static chart test (data 3000)</a></li>
@@ -62,15 +61,15 @@
                         <li class="dropdown first live"><a href="#">live chart test (liveData)</a></li>
                   </ul>
             </li>
-            <li class="dropdown second">
+            <li class="dropdown menu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">echarts<span class="caret"></span></a>
                   <ul class="dropdown-menu" f>
-                        <li class="dropdown second static"><a href="#">static chart test (data 3000)</a></li>
-                        <li class="dropdown second merge"><a href="#">live chart test (data 1000 + liveData)</a></li>
+                        <li class="dropdown second static"><a href="#">static chart test (data 30000)</a></li>
+                        <li class="dropdown second merge"><a href="#">live chart test (data 3600 + liveData)</a></li>
                         <li class="dropdown second live"><a href="#">live chart test (liveData)</a></li>
                   </ul>
             </li>
-            <li class="dropdown third">
+            <li class="dropdown menu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">googlecharts<span class="caret"></span></a>
                   <ul class="dropdown-menu" f>
                         <li class="dropdown third first"><a href="#">static chart test (data 3000)</a></li>

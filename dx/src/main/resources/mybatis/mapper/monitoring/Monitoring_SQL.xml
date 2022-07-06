@@ -132,9 +132,9 @@
     </select>
 
     <select id="getStaticData" parameterType="hashMap" resultMap="NVTMap">
-        SELECT
+        SELECT 
+            DISTINCT n.TIME,
             n.UID,
-            n.TIME,
             n.SPL_CH1_TOTAL,    -- CH1
             n.SPL_CH1_20Hz,
             n.SPL_CH1_25Hz,
@@ -336,7 +336,8 @@
     </select>
 
     <select id="getLiveData" parameterType="hashMap" resultMap="NVTMap">
-        SELECT n.UID,
+        SELECT TOP 1
+            n.UID,
             n.TIME,
             n.SPL_CH1_TOTAL,    -- CH1
             n.SPL_CH1_20Hz,
@@ -536,6 +537,5 @@
             n.TIME = ${livePointTime}
         ORDER BY 
             n.TIME DESC
-        OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY
     </select>
 </mapper>

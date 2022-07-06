@@ -48,7 +48,7 @@ function createEChart(chartType, tableName, isAddLiveData, liveStartTime, shiftC
         },
         legend: {
             orient: 'horizontal',
-            padding: [50, 0, 50, 30],
+            padding: [50, 0, 0, 50],
             data: dataTitles
         },
         toolbox: {
@@ -62,12 +62,13 @@ function createEChart(chartType, tableName, isAddLiveData, liveStartTime, shiftC
             }
         },
         tooltip: {
-            
+            //trigger: 'axis'
         },
         dataZoom: [
             {
                 type: 'slider',
-                filterMode: "filter"
+                filterMode: "filter",
+                realtime : true,
             }
         ], 
         grid: {
@@ -78,7 +79,8 @@ function createEChart(chartType, tableName, isAddLiveData, liveStartTime, shiftC
             containLabel: true
         },
         xAxis: {
-            type: 'value',
+            type: 'time',
+            onZero: false,
             splitLine: {
                 show: false
             }
