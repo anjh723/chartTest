@@ -37,6 +37,38 @@
         <result property="splCh1_12_5khz" column="SPL_CH1_12_5KHz" />
         <result property="splCh1_16khz" column="SPL_CH1_16KHz" />
         <result property="splCh1_20khz" column="SPL_CH1_20KHz" />
+        <result property="splCh2Total" column="SPL_CH2_TOTAL" />
+        <result property="splCh2_20hz" column="SPL_CH2_20Hz" />
+        <result property="splCh2_25hz" column="SPL_CH2_25Hz" />
+        <result property="splCh2_31_5hz" column="SPL_CH2_31_5Hz" />
+        <result property="splCh2_40hz" column="SPL_CH2_40Hz" />
+        <result property="splCh2_50hz" column="SPL_CH2_50Hz" />
+        <result property="splCh2_63hz" column="SPL_CH2_63Hz" />
+        <result property="splCh2_80hz" column="SPL_CH2_80Hz" />
+        <result property="splCh2_100hz" column="SPL_CH2_100Hz" />
+        <result property="splCh2_125hz" column="SPL_CH2_125Hz" />
+        <result property="splCh2_160hz" column="SPL_CH2_160Hz" />
+        <result property="splCh2_200hz" column="SPL_CH2_200Hz" />
+        <result property="splCh2_250hz" column="SPL_CH2_250Hz" />
+        <result property="splCh2_315hz" column="SPL_CH2_315Hz" />
+        <result property="splCh2_400hz" column="SPL_CH2_400Hz" />
+        <result property="splCh2_500hz" column="SPL_CH2_500Hz" />
+        <result property="splCh2_630hz" column="SPL_CH2_630Hz" />
+        <result property="splCh2_800hz" column="SPL_CH2_800Hz" />
+        <result property="splCh2_1khz" column="SPL_CH2_1KHz" />
+        <result property="splCh2_1_25khz" column="SPL_CH2_1_25KHz" />
+        <result property="splCh2_1_6khz" column="SPL_CH2_1_6KHz" />
+        <result property="splCh2_2khz" column="SPL_CH2_2KHz" />
+        <result property="splCh2_2_5khz" column="SPL_CH2_2_5KHz" />
+        <result property="splCh2_3_15khz" column="SPL_CH2_3_15KHz" />
+        <result property="splCh2_4khz" column="SPL_CH2_4KHz" />
+        <result property="splCh2_5khz" column="SPL_CH2_5KHz" />
+        <result property="splCh2_6_3khz" column="SPL_CH2_6_3KHz" />
+        <result property="splCh2_8khz" column="SPL_CH2_8KHz" />
+        <result property="splCh2_10khz" column="SPL_CH2_10KHz" />
+        <result property="splCh2_12_5khz" column="SPL_CH2_12_5KHz" />
+        <result property="splCh2_16khz" column="SPL_CH2_16KHz" />
+        <result property="splCh2_20khz" column="SPL_CH2_20KHz" />
     </resultMap>
 
 
@@ -277,6 +309,8 @@
             n.SPL_CH2_20KHz
         FROM 
             DXLGE.dbo.${tableName} n
+        WHERE
+            n.UID = ${xAxisVal}
         ORDER BY
             n.UID DESC
     </select>

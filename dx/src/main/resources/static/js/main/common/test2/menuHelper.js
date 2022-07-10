@@ -38,9 +38,10 @@ $(document).ready(function () {
     }   
 });
 
+// 메뉴 클릭시 동작
 function clickedMenu(menuId) {
     // home tab hide
-    let mainDom = document.getElementsByClassName('chart_container');
+    let mainDom = document.getElementsByClassName('homeTextArea');
     for (let x = 0; x < mainDom.length; x++) {
         mainDom[x].style.visibility = "hidden";
     }
@@ -56,11 +57,35 @@ function clickedMenu(menuId) {
     if (menuId.includes('dropdown first')) {
         liveDataTimer = 1;
 
-        // chartType, div id, tableName, isAddLiveData, dataPer, shiftCnt 
-        callDataAndDrawChart('echarts', 'chart1', new Object(), new Object(), 'NVT28', true, 10800, 1, 10);
-        // chartType, div id, tableName, isAddLiveData, dataPer, shiftCnt 
-        callDataAndDrawChart('echarts', 'chart2-1', new Object(), new Object(), 'NVT28', true, 10800, 1, 10);
-        callDataAndDrawChart('echarts', 'chart2-2', new Object(), new Object(), 'NVT28', true, 10800, 1, 10);
+        // @params: chartType, tableName, echart, echartOption, dataKeys, dataPer, xAxisRange, xAxisVal, shiftCnt
+        callRealTimeDataAndDrawChart(
+            'echarts',
+            ['chart1', 'chart2-1', 'chart2-2'],
+            'NVT28',
+            [],
+            [
+                createChartOptions(
+                    'Total',
+                    dataTitlesTotal2Ch,
+                    'line'),
+                createChartOptions(
+                    'CH1',
+                    dataTitles1Ch,
+                    'bar'),
+                createChartOptions(
+                    'CH2',
+                    dataTitles2Ch,
+                    'bar'),
+            ],
+            [dataKeysTotal2Ch, dataKeys1Ch, dataKeys2Ch],   // dataKeysArr
+            1,  // dataPer
+            [10800, dataTitles1Ch, dataTitles2Ch], // categories
+            1,  // xAxisVal
+            10800  // shiftCnt
+        );
+
+        //callDataAndDrawChart('echarts', 'chart2-1', null, new Object(), 'NVT28', true, 10800, 1, 10800);
+        //callDataAndDrawChart('echarts', 'chart2-2', null, new Object(), 'NVT28', true, 10800, 1, 10800);
     } 
 
     // =========================== home ===========================
