@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+      <title>Chart test page</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" th:href="@{/css/chart/chart.css}" type="text/css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <!-- highchart libs -->
+      <script src="js/libs/highcharts/highcharts.js"></script>
+      <script src="js/libs/highcharts/modules/exporting.js"></script>
+      <script src="js/libs/highcharts/modules/accessibility.js"></script>
+      <script src="js/libs/highcharts/modules/exporting.js"></script>
+      <script src="js/libs/highcharts/modules/boost.js"></script>
+      <script src="js/libs/highcharts/modules/boost-canvas.js"></script>
+      
+      <!-- echart libs -->
+      <script src="js/libs/echarts/echarts.min.js"></script>
+
+      <!-- uplot libs -->
+      <link rel="stylesheet" href="js/libs/uplot/uPlot.min.css" type="text/css">
+      <script src="js/libs/uplot/uPlot.iife.js"></script>
+</head>
+<style>
+      .chart_container {
+            width: 1000px;
+            height: 1300px;
+      }
+
+      .chart_div {
+            text-align: center;
+            display: flex;
+            width: 1000px;
+            height: 500px;
+      }
+
+      #chart1 {
+            background-color: beige;
+            text-align: center;
+            display: block;
+            position: absolute;
+            float: bottom;
+            width: 1000px;
+            height: 500px;
+      }
+      #chart2-1 {
+            background-color: bisque;
+            text-align: center;
+            display: flex;
+            width: 500px;
+            height: 500px;
+      }
+      #chart2-2 {
+            background-color: cornflowerblue;
+            text-align: center;
+            display: ;
+            width: 500px;
+            height: 500px;
+      }
+</style>
+<body>
+<div class="container">
+      <h3>Chart test page</h3>
+      <ul class="nav nav-tabs">
+            <li class="tab home active"><a href="#">Home</a></li>
+            <li class="dropdown menu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">실시간차트<span class="caret"></span></a>
+                  <ul class="dropdown-menu"f>
+                        <li class="dropdown first"><a href="#">외부(6초) + 내부데이터 (1초)</a></li>
+                  </ul>
+            </li>
+      </ul>
+
+      <div class="chart_container">
+            <h2>외부데이터, 내부데이터, 소음데이터를 테스트하는 페이지 입니다.</h2>
+            <div class="chart_div">
+                  <div id="chart1"></div>
+            </div>
+            <div class="chart_div">
+                  <div id="chart2-1"></div>
+                  <div id="chart2-2"></div>
+            </div>
+      </div>
+</div>
+</body>
+<script src="js/main/charts/uplot/uplotHelper.js" rel="script"></script>
+<script src="js/main/charts/highchart/highchartHelper.js" rel="script"></script>
+<script src="js/main/charts/echart/test2/echartHelper.js" rel="script"></script>
+<script src="js/main/common/test2/cmmchartHelper.js" rel="script"></script>
+<script src="js/main/common/test2/menuHelper.js" rel="script"></script>
+</html>

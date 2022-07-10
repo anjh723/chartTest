@@ -84,7 +84,7 @@ function createEChart(chartType, tableName, isAddLiveData, liveStartTime, shiftC
             containLabel: true
         },
         xAxis: {
-            type: 'time',
+            data: data.uid,
             onZero: false,
             splitLine: {
                 show: false

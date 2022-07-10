@@ -13,6 +13,6 @@ public class MainController {
     @GetMapping(value = { "", "/", "main" })
     public String intro(HttpServletRequest request, HttpServletResponse response, Model model) {
         // chart test view
-        return "/main/temp/view";
+        return "/main/temp/test2/view";
     }
 }

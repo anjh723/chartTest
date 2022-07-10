@@ -1,4 +1,6 @@
 // DOM loading 후 실행.
+let dropdownClicked = 0;
+
 $(document).ready(function () {
     // Get all buttons with class="tab" inside the container
     const dropdowns = document.getElementsByClassName("dropdown");
@@ -12,7 +14,11 @@ $(document).ready(function () {
             this.className += " active";
 
             // action
-            clickedMenu(this.className);
+            if (dropdownClicked === 0) {
+                clickedMenu(this.className);
+            }
+
+            dropdownClicked = 0;
         });
     }   
 
@@ -26,6 +32,7 @@ $(document).ready(function () {
             // action
             if (!this.className.includes('dropdown menu')) {
                 clickedMenu(this.className);
+                dropdownClicked = 1;
             } 
         });
     }   
