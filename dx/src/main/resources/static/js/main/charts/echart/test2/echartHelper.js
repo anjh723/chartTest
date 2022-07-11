@@ -1,22 +1,29 @@
 // chart Options
 function createChartOptions(mainTitle, dataTitles, seriesType) {
     let dataSeries = [];  // vo key 값.
-    let chartTitle = mainTitle + ' (live data graph)';
+    let chartTitle = mainTitle + ' (live)';
     let xAxis;
 
     // series 데이터 셋팅
     if (seriesType === 'line') {
         for (let i = 0; i < dataTitles.length; i++) {
             dataSeries[i] = {
-                name: dataTitles[i],
                 type: seriesType,
+                name: dataTitles[i],
+                showSymbol: false,
+                hoverAnimation: false,
+                animation: true,
+                animationDurationUpdate: 1000,
+                animationEasingUpdate: 'linear',
+                pointWidth: 0.5,
                 data: []
             }                
         }
         
         xAxis =  {
             type: 'category',
-            boundaryGap: false,
+            boundaryGap: true,
+            axisLine: { onZero: false },
             data: [],
             splitLine: {
                 show: false
@@ -25,8 +32,9 @@ function createChartOptions(mainTitle, dataTitles, seriesType) {
 
     } else if (seriesType === 'bar') {
         dataSeries = {
-            name: 'db',
             type: seriesType,
+            name: 'db',
+            axisLine: { onZero: false },
             barWidth: '60%',
             data: []
         }   
@@ -73,8 +81,8 @@ function createChartOptions(mainTitle, dataTitles, seriesType) {
         grid: {
             left: '3%',
             right: '3%',
-            top: '0%',
-            bottom: '10%',
+            top: '20%',
+            bottom: '13%',
             containLabel: true
         },
         xAxis: xAxis,
@@ -82,9 +90,10 @@ function createChartOptions(mainTitle, dataTitles, seriesType) {
             {
                 type: 'value',
                 min: -30,
-                max: 100,
+                axisLine: { onZero: false },
                 axisLabel : {
-                    formatter: '{value} db'
+                    formatter: '{value} db',
+                    inside: false
                 }
             }
         ],

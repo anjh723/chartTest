@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.lg.dx.app.menu.monitoring.vo.InnerData;
 import com.lg.dx.app.menu.monitoring.vo.NVT;
 
 public interface MonitoringService {
@@ -16,6 +17,8 @@ public interface MonitoringService {
 
     List<NVT> getStaticData(Map<String, Object> requests);
 
-    List<NVT> getLiveData(Map<String, Object> requests);
+    List<NVT> getSoundLiveData(Map<String, Object> requests);
+
+    List<InnerData> getInnerLiveData(Map<String, Object> requests);
 
 }

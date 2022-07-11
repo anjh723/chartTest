@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import com.lg.dx.app.menu.monitoring.vo.InnerData;
 import com.lg.dx.app.menu.monitoring.vo.NVT;
 
 @Repository
@@ -20,5 +21,7 @@ public interface MonitoringMapper {
 
     List<NVT> getStaticData(Map<String, Object> requests);
 
-    List<NVT> getLiveData(Map<String, Object> requests);
+    List<NVT> getSoundLiveData(Map<String, Object> requests);
+
+    List<InnerData> getInnerLiveData(Map<String, Object> requests);
 }

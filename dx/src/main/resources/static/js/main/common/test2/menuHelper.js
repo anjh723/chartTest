@@ -50,19 +50,22 @@ function clickedMenu(menuId) {
     chartDoms.push(document.getElementById('chart1'));
     chartDoms.push(document.getElementById('chart2-1'));
     chartDoms.push(document.getElementById('chart2-2'));
+    chartDoms.push(document.getElementById('chart3'));
 
     clearChartArea(chartDoms);
     // ======================== 실시간 데이터 조회 ========================
-    // 내부 + 외부데이터 조회
+    // 소음 + 내부데이터 조회
     if (menuId.includes('dropdown first')) {
         liveDataTimer = 1;
 
-        // @params: chartType, tableName, echart, echartOption, dataKeys, dataPer, xAxisRange, xAxisVal, shiftCnt
+        // 소음 데이터 차트 3개
+        // @params: chartType, url, divIdArr, tableName, echartArr, echartOptionArr, dataKeysArr, dataPer, categories, xAxisVal, shiftCnt
         callRealTimeDataAndDrawChart(
-            'echarts',
-            ['chart1', 'chart2-1', 'chart2-2'],
-            'NVT28',
-            [],
+            'echarts',  // chartType
+            '/getSoundLiveData', //url
+            ['chart1', 'chart2-1', 'chart2-2'], //divIdArr
+            'NVT28',    // tableName
+            [], //echartArr
             [
                 createChartOptions(
                     'Total',
@@ -76,17 +79,43 @@ function clickedMenu(menuId) {
                     'CH2',
                     dataTitles2Ch,
                     'bar'),
-            ],
+            ],  // echartOptionArr
             [dataKeysTotal2Ch, dataKeys1Ch, dataKeys2Ch],   // dataKeysArr
             1,  // dataPer
             [10800, dataTitles1Ch, dataTitles2Ch], // categories
             1,  // xAxisVal
             10800  // shiftCnt
         );
-
-        //callDataAndDrawChart('echarts', 'chart2-1', null, new Object(), 'NVT28', true, 10800, 1, 10800);
-        //callDataAndDrawChart('echarts', 'chart2-2', null, new Object(), 'NVT28', true, 10800, 1, 10800);
+        
+        // 내부 데이터 차트 1개
+        callRealTimeDataAndDrawChart(
+            'echarts',  // chartType
+            '/getInnerLiveData', //url
+            ['chart3'], //divIdArr
+            'CWREF_21011_20227618496',    // tableName
+            [], //echartArr
+            [
+                createChartOptions(
+                    'Total',
+                    dataTitlesInData,
+                    'line')
+            ],  // echartOptionArr
+            [dataKeysInData],   // dataKeysArr
+            1,  // dataPer
+            [10800], // categories
+            1,  // xAxisVal
+            10800  // shiftCnt
+        );
     } 
+
+    // 외부 + 내부데이터 조회
+    else if (menuId.includes('dropdown second')) {
+        //liveDataTimer = 1;
+
+        // @params: chartType, url, divIdArr, tableName, echartArr, echartOptionArr, dataKeysArr, dataPer, categories, xAxisVal, shiftCnt
+        //callRealTimeDataAndDrawChart();
+    } 
+
 
     // =========================== home ===========================
     else if (menuId.includes('tab home')) {

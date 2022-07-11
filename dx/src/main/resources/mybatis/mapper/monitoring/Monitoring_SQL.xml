@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lg.dx.app.menu.monitoring.mapper.MonitoringMapper">
-
-    <resultMap type="com.lg.dx.app.menu.monitoring.vo.NVT" id="NVTMap">
+    <resultMap type="com.lg.dx.app.menu.monitoring.vo.NVT" id="SoundMap">
         <id property="uid" column="UID" />
         <result property="time" column="TIME" />
         <result property="splCh1Total" column="SPL_CH1_TOTAL" />
@@ -71,99 +70,51 @@
         <result property="splCh2_20khz" column="SPL_CH2_20KHz" />
     </resultMap>
 
+    <resultMap type="com.lg.dx.app.menu.monitoring.vo.InnerData" id="InnerMap">
+        <id property="uid" column="UID" />
+        <result property="time" column="TIME" />
+        <result property="t01n43" column="1000_01_43" />
+        <result property="t01n44" column="1000_01_44" />
+        <result property="t01n50" column="1000_01_50" />
+        <result property="t01n55" column="1000_01_55" />
+        <result property="t01n73" column="1000_01_73" />
+        <result property="t01n86" column="1000_01_86" />
+        <result property="t01n88" column="1000_01_88" />
+        <result property="t01n90" column="1000_01_90" />
+        <result property="t01n92" column="1000_01_92" />
+        <result property="t01n94" column="1000_01_94" />
+        <result property="t01n96" column="1000_01_96" />
+        <result property="t01n99" column="1000_01_99" />
+        <result property="t01n100" column="1000_01_100" />
+        <result property="t01n103" column="1000_01_103" />
+        <result property="t01n108" column="1000_01_108" />
+        <result property="t01n109" column="1000_01_109" />
+        <result property="t01n122" column="1000_01_122" />
+        <result property="t01n123" column="1000_01_123" />
+        <result property="t01n162" column="1000_01_162" />
+        <result property="stroke" column="stroke" />
+        <result property="phase" column="Phase" />
+        <result property="power" column="power" />
+        <result property="current1" column="current1" />
+        <result property="display" column="Display" />
+        <result property="stkRef" column="stk_ref" />
+        <result property="tripTimer" column="Trip_Timer" />
+        <result property="pwm" column="PWM" />
+        <result property="phaseLock" column="Phase_Lock" />
+        <result property="frequency" column="Frequency" />
+        <result property="dcOffset" column="DC_Offset" />
+        <result property="refComm_1Byte" column="REF_Comm_1Byte" />
+        <result property="refComm_2Byte" column="REF_Comm_2Byte" />
+        <result property="refComm_3Byte" column="TDC_Flag" />
+        <result property="tdcFlag" column="Beta" />
+        <result property="beta" column="Power_Save" />
+        <result property="powerSave" column="Trip" />
+        <result property="trip" column="REF_Comm_3Byte" />
+        <result property="currentWave" column="Current_wave" />
+        <result property="strokeWave" column="Stroke_wave" />
+    </resultMap>
 
-    <select id="monitoring" resultMap="NVTMap">
-        SELECT n.UID,
-               n.SPL_CH1_TOTAL,
-               n.SPL_CH1_20Hz,
-               n.SPL_CH1_25Hz,
-               n.SPL_CH1_31_5Hz,
-               n.SPL_CH1_40Hz,
-               n.SPL_CH1_50Hz,
-               n.SPL_CH1_63Hz,
-               n.SPL_CH1_80Hz,
-               n.SPL_CH1_100Hz,
-               n.SPL_CH1_125Hz,
-               n.SPL_CH1_160Hz,
-               n.SPL_CH1_200Hz,
-               n.SPL_CH1_250Hz,
-               n.SPL_CH1_315Hz,
-               n.SPL_CH1_400Hz,
-               n.SPL_CH1_500Hz,
-               n.SPL_CH1_630Hz,
-               n.SPL_CH1_800Hz,
-               n.SPL_CH1_1KHz,
-               n.SPL_CH1_1_25KHz,
-               n.SPL_CH1_1_6KHz,
-               n.SPL_CH1_2KHz,
-               n.SPL_CH1_2_5KHz,
-               n.SPL_CH1_3_15KHz,
-               n.SPL_CH1_4KHz,
-               n.SPL_CH1_5KHz,
-               n.SPL_CH1_6_3KHz,
-               n.SPL_CH1_8KHz,
-               n.SPL_CH1_10KHz,
-               n.SPL_CH1_12_5KHz,
-               n.SPL_CH1_16KHz,
-               n.SPL_CH1_20KHz,
-               n.SPL_CH2_TOTAL,
-               n.SPL_CH2_20Hz,
-               n.SPL_CH2_25Hz,
-               n.SPL_CH2_31_5Hz,
-               n.SPL_CH2_40Hz,
-               n.SPL_CH2_50Hz,
-               n.SPL_CH2_63Hz,
-               n.SPL_CH2_80Hz,
-               n.SPL_CH2_100Hz,
-               n.SPL_CH2_125Hz,
-               n.SPL_CH2_160Hz,
-               n.SPL_CH2_200Hz,
-               n.SPL_CH2_250Hz,
-               n.SPL_CH2_315Hz,
-               n.SPL_CH2_400Hz,
-               n.SPL_CH2_500Hz,
-               n.SPL_CH2_630Hz,
-               n.SPL_CH2_800Hz,
-               n.SPL_CH2_1KHz,
-               n.SPL_CH2_1_25KHz,
-               n.SPL_CH2_1_6KHz,
-               n.SPL_CH2_2KHz,
-               n.SPL_CH2_2_5KHz,
-               n.SPL_CH2_3_15KHz,
-               n.SPL_CH2_4KHz,
-               n.SPL_CH2_5KHz,
-               n.SPL_CH2_6_3KHz,
-               n.SPL_CH2_8KHz,
-               n.SPL_CH2_10KHz,
-               n.SPL_CH2_12_5KHz,
-               n.SPL_CH2_16KHz,
-               n.SPL_CH2_20KHz
-        FROM DXLGE.dbo.NVT3 n
-        ORDER BY n.UID DESC
-        OFFSET #{page} ROWS FETCH NEXT 1 ROWS ONLY
-    </select>
-
-    <select id="outMonitoring" parameterType="hashMap" resultType="hashMap">
-        select
-            "#1전력" as 전력_1,
-            "#1적산전력" as 적산전력_1,
-            "#2전력" as 전력_2,
-            "#2적산전력" as 적산전력_2
-        from OUT2DATA O1D
-        ORDER BY O1D.UID DESC
-        OFFSET #{page} ROWS FETCH NEXT 1 ROWS ONLY
-    </select>
-
-
-    <select id="inMonitoring" parameterType="hashMap" resultType="hashMap">
-        select rq.Comp_PWM as COMP_PWM
-        from Req_CWREF_1128_2205311502 rq
-        ORDER BY rq.TIME DESC
-        OFFSET #{page} ROWS FETCH NEXT 1 ROWS ONLY
-    
-    </select>
-
-    <select id="getStaticData" parameterType="hashMap" resultMap="NVTMap">
+    <select id="getStaticData" parameterType="hashMap" resultMap="SoundMap">
         SELECT 
             n.UID,
             n.TIME,
@@ -239,7 +190,7 @@
             n.uid ASC
     </select>
 
-    <select id="getLiveData" parameterType="hashMap" resultMap="NVTMap">
+    <select id="getSoundLiveData" parameterType="hashMap" resultMap="SoundMap">
         SELECT TOP 1
             n.UID,
             n.TIME,
@@ -310,8 +261,59 @@
         FROM 
             DXLGE.dbo.${tableName} n
         WHERE
-            n.UID = ${xAxisVal}
+            n.UID = ${xAxisVal} -- 실시간 Test시 WHERE조건 삭제
         ORDER BY
             n.UID DESC
+    </select>
+
+    <select id="getInnerLiveData" parameterType="hashMap" resultMap="InnerMap">
+        SELECT TOP 1
+            t.UID,
+            t.TIME,
+            t.[1000_01_43],
+            t.[1000_01_44],
+            t.[1000_01_50],
+            t.[1000_01_55],
+            t.[1000_01_73],
+            t.[1000_01_86],
+            t.[1000_01_88],
+            t.[1000_01_90],
+            t.[1000_01_92],
+            t.[1000_01_94],
+            t.[1000_01_96],
+            t.[1000_01_99],
+            t.[1000_01_100],
+            t.[1000_01_103],
+            t.[1000_01_108],
+            t.[1000_01_109],
+            t.[1000_01_122],
+            t.[1000_01_123],
+            t.[1000_01_162],
+			t.stroke,
+			t.Phase,
+			t.power,
+			t.current1,
+			t.Display,
+			t.stk_ref,
+			t.Trip_Timer,
+			t.PWM,
+			t.Phase_Lock,
+			t.Frequency,
+			t.DC_Offset,
+			t.REF_Comm_1Byte,
+			t.REF_Comm_2Byte,
+			t.TDC_Flag,
+			t.Beta,
+			t.Power_Save,
+			t.Trip,
+			t.REF_Comm_3Byte,
+			t.Current_wave,
+			t.Stroke_wave
+        FROM 
+            DXLGE.dbo.${tableName} t
+        WHERE
+            t.UID = ${xAxisVal} -- 실시간 Test시 WHERE조건 삭제
+        ORDER BY
+            t.UID DESC
     </select>
 </mapper>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.lg.dx.app.menu.monitoring.mapper.MonitoringMapper;
 import com.lg.dx.app.menu.monitoring.service.MonitoringService;
+import com.lg.dx.app.menu.monitoring.vo.InnerData;
 import com.lg.dx.app.menu.monitoring.vo.NVT;
 
 @Service
@@ -38,8 +39,16 @@ public class MonitoringServiceImpl implements MonitoringService {
     }
 
     @Override
-    public List<NVT> getLiveData(Map<String, Object> requests) {
-        return monitoringMapper.getLiveData(requests);
+    public List<NVT> getSoundLiveData(Map<String, Object> requests) {
+        List<NVT> result = monitoringMapper.getSoundLiveData(requests);
+
+        return result;
     }
 
+    @Override
+    public List<InnerData> getInnerLiveData(Map<String, Object> requests) {
+        List<InnerData> result = monitoringMapper.getInnerLiveData(requests);
+
+        return result;
+    }
 }

@@ -34,7 +34,7 @@
             text-align: center;
             display: flex;
             width: 1000px;
-            height: 500px;
+            height: 350px;
       }
 
       #chart1 {
@@ -42,19 +42,26 @@
             display: block;
             position: absolute;
             width: 1000px;
-            height: 500px;
+            height: 350px;
       }
       #chart2-1 {
             text-align: center;
             display: flex;
             width: 500px;
-            height: 500px;
+            height: 350px;
       }
       #chart2-2 {
             text-align: center;
             display: flex;
             width: 500px;
-            height: 500px;
+            height: 350px;
+      }
+      #chart3 {
+            text-align: center;
+            display: block;
+            position: absolute;
+            width: 1000px;
+            height: 350px;
       }
 </style>
 <body>
@@ -65,7 +72,7 @@
             <li class="dropdown menu">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">실시간차트<span class="caret"></span></a>
                   <ul class="dropdown-menu"f>
-                        <li class="dropdown first"><a href="#">외부(6초) + 내부데이터 (1초)</a></li>
+                        <li class="dropdown first"><a href="#">소음(1초) + 내부(1초)</a></li>
                   </ul>
             </li>
       </ul>
@@ -81,12 +88,16 @@
                   <div id="chart2-1"></div>
                   <div id="chart2-2"></div>
             </div>
+            <div class="chart_div">
+                  <div id="chart3"></div>
+            </div>
       </div>
 </div>
 </body>
 <script src="js/main/charts/uplot/uplotHelper.js" rel="script"></script>
 <script src="js/main/charts/highchart/highchartHelper.js" rel="script"></script>
-<script src="js/main/charts/echart/test2/echartHelper.js" rel="script"></script>
+<script src="js/main/common/test2/dataConstants.js" rel="script"></script>
 <script src="js/main/common/test2/cmmchartHelper.js" rel="script"></script>
 <script src="js/main/common/test2/menuHelper.js" rel="script"></script>
+<script src="js/main/charts/echart/test2/echartHelper.js" rel="script"></script>
 </html>
