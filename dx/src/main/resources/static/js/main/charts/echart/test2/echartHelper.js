@@ -89,7 +89,7 @@ function createChartOptions(mainTitle, dataTitles, seriesType) {
         yAxis : [
             {
                 type: 'value',
-                min: -30,
+                min: -20,
                 axisLine: { onZero: false },
                 axisLabel : {
                     formatter: '{value} db',

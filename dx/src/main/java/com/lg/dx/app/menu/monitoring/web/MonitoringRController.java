@@ -23,6 +23,11 @@ public class MonitoringRController {
     @Autowired
     private MonitoringService monitoringService;
 
+    @PostMapping("/getTableColumns")
+    public List<Map<String, Object>> getTableColumns(@RequestBody Map<String, Object> requests) {
+        return monitoringService.getTableColumns(requests);
+    }
+
     @PostMapping("/getStaticData")
     public List<NVT> getStaticData(@RequestBody Map<String, Object> requests) {
         return monitoringService.getStaticData(requests);
@@ -36,6 +41,11 @@ public class MonitoringRController {
     @PostMapping("/getInnerLiveData")
     public List<InnerData> getInnerLiveData(@RequestBody Map<String, Object> requests) {
         return monitoringService.getInnerLiveData(requests);
+    }
+
+    @PostMapping("/getOutterLiveData")
+    public List<Map<String, Object>> getOutterLiveData(@RequestBody Map<String, Object> requests) {
+        return monitoringService.getOutterLiveData(requests);
     }
 
 }

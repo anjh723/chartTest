@@ -13,15 +13,13 @@ import com.lg.dx.app.menu.monitoring.vo.NVT;
 @Repository
 @Mapper
 public interface MonitoringMapper {
-    List<NVT> monitoring(int page);
-
-    HashMap<String, Object> outMonitoring(int page);
-
-    HashMap<String, Object> inMonitoring(int page);
+    List<Map<String, Object>> getTableColumns(Map<String, Object> requests);
 
     List<NVT> getStaticData(Map<String, Object> requests);
 
     List<NVT> getSoundLiveData(Map<String, Object> requests);
 
     List<InnerData> getInnerLiveData(Map<String, Object> requests);
+
+    List<Map<String, Object>> getOutterLiveData(Map<String, Object> requests);
 }

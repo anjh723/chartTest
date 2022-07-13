@@ -19,18 +19,10 @@ public class MonitoringServiceImpl implements MonitoringService {
     private MonitoringMapper monitoringMapper;
 
     @Override
-    public List<NVT> monitoring(int page) {
-        return monitoringMapper.monitoring(page);
-    }
+    public List<Map<String, Object>> getTableColumns(Map<String, Object> requests) {
+        List<Map<String, Object>> result = monitoringMapper.getTableColumns(requests);
 
-    @Override
-    public HashMap<String, Object> outMonitoring(int page) {
-        return monitoringMapper.outMonitoring(page);
-    }
-
-    @Override
-    public HashMap<String, Object> inMonitoring(int page) {
-        return monitoringMapper.inMonitoring(page);
+        return result;
     }
 
     @Override
@@ -48,6 +40,13 @@ public class MonitoringServiceImpl implements MonitoringService {
     @Override
     public List<InnerData> getInnerLiveData(Map<String, Object> requests) {
         List<InnerData> result = monitoringMapper.getInnerLiveData(requests);
+
+        return result;
+    }
+
+    @Override
+    public List<Map<String, Object>> getOutterLiveData(Map<String, Object> requests) {
+        List<Map<String, Object>> result = monitoringMapper.getOutterLiveData(requests);
 
         return result;
     }

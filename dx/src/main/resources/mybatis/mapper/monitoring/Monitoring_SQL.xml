@@ -114,6 +114,15 @@
         <result property="strokeWave" column="Stroke_wave" />
     </resultMap>
 
+    <select id="getTableColumns" parameterType="hashMap" resultType="hashMap">
+        SELECT
+            COLUMN_NAME
+        FROM 
+            INFORMATION_SCHEMA.COLUMNS
+        WHERE 
+            TABLE_NAME = #{tableName}
+    </select>
+
     <select id="getStaticData" parameterType="hashMap" resultMap="SoundMap">
         SELECT 
             n.UID,
@@ -260,8 +269,6 @@
             n.SPL_CH2_20KHz
         FROM 
             DXLGE.dbo.${tableName} n
-        WHERE
-            n.UID = ${xAxisVal} -- 실시간 Test시 WHERE조건 삭제
         ORDER BY
             n.UID DESC
     </select>
@@ -311,8 +318,15 @@
 			t.Stroke_wave
         FROM 
             DXLGE.dbo.${tableName} t
-        WHERE
-            t.UID = ${xAxisVal} -- 실시간 Test시 WHERE조건 삭제
+        ORDER BY
+            t.UID DESC
+    </select>
+
+    <select id="getOutterLiveData" parameterType="hashMap" resultType="hashMap">
+        SELECT TOP 1
+            t.*
+        FROM 
+            DXLGE.dbo.${tableName} t
         ORDER BY
             t.UID DESC
     </select>

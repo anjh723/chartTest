@@ -58,17 +58,17 @@ function clickedMenu(menuId) {
     if (menuId.includes('dropdown first')) {
         liveDataTimer = 1;
 
-        // 소음 데이터 차트 3개
+        // 소음 데이터 (차트 3개)
         // @params: chartType, url, divIdArr, tableName, echartArr, echartOptionArr, dataKeysArr, dataPer, categories, xAxisVal, shiftCnt
         callRealTimeDataAndDrawChart(
             'echarts',  // chartType
-            '/getSoundLiveData', //url
+            soundLiveDataURL, //url
             ['chart1', 'chart2-1', 'chart2-2'], //divIdArr
             'NVT28',    // tableName
             [], //echartArr
             [
                 createChartOptions(
-                    'Total',
+                    '소음 Total',
                     dataTitlesTotal2Ch,
                     'line'),
                 createChartOptions(
@@ -87,16 +87,16 @@ function clickedMenu(menuId) {
             10800  // shiftCnt
         );
         
-        // 내부 데이터 차트 1개
+        // 내부 데이터
         callRealTimeDataAndDrawChart(
             'echarts',  // chartType
-            '/getInnerLiveData', //url
+            inDataURL, //url
             ['chart3'], //divIdArr
             'CWREF_21011_20227618496',    // tableName
             [], //echartArr
             [
                 createChartOptions(
-                    'Total',
+                    '내부 데이터',
                     dataTitlesInData,
                     'line')
             ],  // echartOptionArr
@@ -110,10 +110,37 @@ function clickedMenu(menuId) {
 
     // 외부 + 내부데이터 조회
     else if (menuId.includes('dropdown second')) {
-        //liveDataTimer = 1;
+        liveDataTimer = 1;
 
-        // @params: chartType, url, divIdArr, tableName, echartArr, echartOptionArr, dataKeysArr, dataPer, categories, xAxisVal, shiftCnt
-        //callRealTimeDataAndDrawChart();
+        // dynamicOutDataKeys set (컬럼값 그대로 사용)
+        // 외부 데이터 호출
+        dynamicOutDataKeys = callOutDataChart(
+            getTableColumnsURL,
+            'CWREF_21012_220705213643',
+            dynamicOutDataKeys
+        );
+
+        // 내부 데이터
+        callRealTimeDataAndDrawChart(
+            'echarts',  // chartType
+            inDataURL, //url
+            ['chart1'], //divIdArr
+            'CWREF_21011_20227618496',    // tableName
+            [], //echartArr
+            [
+                createChartOptions(
+                    '내부 데이터',
+                    dataTitlesInData,
+                    'line')
+            ],  // echartOptionArr
+            [dataKeysInData],   // dataKeysArr
+            1,  // dataPer
+            [10800], // categories
+            1,  // xAxisVal
+            10800  // shiftCnt
+        );
+
+        
     } 
 
 
@@ -132,7 +159,7 @@ function clickedMenu(menuId) {
     }
 }
 
-function clearChartArea(chartDoms) {  // chart 영역 안의 자식요소 모두 삭제
+function clearChartArea(chartDoms) {  // chart 영역 안의 자식요소, 사용된 메모리 모두 초기화.
 
     // chart div의 id를 제외한 모든 attr 삭제
     chartDoms.forEach(chartDom => {
@@ -150,4 +177,8 @@ function clearChartArea(chartDoms) {  // chart 영역 안의 자식요소 모두
 
     // 실시간 x축 데이터 초기화
     xAxisVal = 1;
+
+    // 테이블 컬럼 상자 초기화
+    dynamicOutDataKeys = [];
+    dynamicOutDataTitles = [];
 }

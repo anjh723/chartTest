@@ -120,6 +120,8 @@ const dataTitlesInData = [
 	"Stroke_wave"
 ];
 
+// 동적 제목 데이터 (외부데이터)
+let dynamicOutDataTitles = [];
 // ========================== data key ==========================
 // vo데이터와 일치하는 데이터 키값
 // 소음데이터 1ch all
@@ -242,3 +244,6 @@ const dataKeysInData = [
     "currentWave",
     "strokeWave"
 ];
+
+// 동적 키 데이터 (외부데이터)
+let dynamicOutDataKeys = [];
