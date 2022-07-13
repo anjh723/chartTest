@@ -70,15 +70,21 @@ function clickedMenu(menuId) {
                 createChartOptions(
                     '소음 Total',
                     dataTitlesTotal2Ch,
-                    'line'),
+                    'line',
+                    true,
+                    true),
                 createChartOptions(
                     'CH1',
                     dataTitles1Ch,
-                    'bar'),
+                    'bar',
+                    false,
+                    true),
                 createChartOptions(
                     'CH2',
                     dataTitles2Ch,
-                    'bar'),
+                    'bar',
+                    false,
+                    true),
             ],  // echartOptionArr
             [dataKeysTotal2Ch, dataKeys1Ch, dataKeys2Ch],   // dataKeysArr
             1,  // dataPer
@@ -98,7 +104,9 @@ function clickedMenu(menuId) {
                 createChartOptions(
                     '내부 데이터',
                     dataTitlesInData,
-                    'line')
+                    'line',
+                    true,
+                    false)
             ],  // echartOptionArr
             [dataKeysInData],   // dataKeysArr
             1,  // dataPer
@@ -112,12 +120,10 @@ function clickedMenu(menuId) {
     else if (menuId.includes('dropdown second')) {
         liveDataTimer = 1;
 
-        // dynamicOutDataKeys set (컬럼값 그대로 사용)
         // 외부 데이터 호출
-        dynamicOutDataKeys = callOutDataChart(
+        callOutDataChart(
             getTableColumnsURL,
-            'CWREF_21012_220705213643',
-            dynamicOutDataKeys
+            'CWREF_21012_220705213643'
         );
 
         // 내부 데이터
@@ -131,7 +137,9 @@ function clickedMenu(menuId) {
                 createChartOptions(
                     '내부 데이터',
                     dataTitlesInData,
-                    'line')
+                    'line',
+                    true,
+                    false)
             ],  // echartOptionArr
             [dataKeysInData],   // dataKeysArr
             1,  // dataPer

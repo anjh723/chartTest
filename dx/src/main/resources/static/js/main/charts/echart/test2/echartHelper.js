@@ -1,8 +1,11 @@
 // chart Options
-function createChartOptions(mainTitle, dataTitles, seriesType) {
+function createChartOptions(mainTitle, dataTitles, seriesType, isUseZoom, isUseToolTip) {
     let dataSeries = [];  // vo key 값.
     let chartTitle = mainTitle + ' (live)';
     let xAxis;
+    let zoomset;
+    let tooltipset;
+    let legendset;
 
     // series 데이터 셋팅
     if (seriesType === 'line') {
@@ -48,16 +51,64 @@ function createChartOptions(mainTitle, dataTitles, seriesType) {
         }
     }
 
+    if (isUseZoom) {
+        zoomset = {
+                type: 'slider',
+                filterMode: "filter",
+                realTime: true
+        };
+    }
+
+    if (isUseToolTip) {
+        tooltipset = {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#283b56'
+                }
+            },
+            position: function(point, params, dom, rect, size){
+                //Where point is the current mouse position, and there are two attributes in size: viewSize and contentSize, which are the size of the outer div and tooltip prompt box respectively
+                 var x = point[0];//
+                 var y = point[1];
+                 var boxWidth = size.contentSize[0];
+                 var boxHeight = size.contentSize[1];
+                 var posX = -100;//x coordinate position
+                 var posY = -100;//y coordinate position
+                 
+                 if(x<boxWidth){//The left side cannot be released
+                     posX = 5;    
+                 }else{//Left down
+                     posX = x-boxWidth; 
+                 }
+                 
+                 if(y<boxHeight){//Can't let go of the top
+                     posY = 5; 
+                 }else{//The upper side can be put down
+                     posY = y-boxHeight;
+                 }
+                 
+                 return [posX,posY];
+            }
+        };
+    } else {
+        tooltipset = {
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#283b56'
+                }
+            }
+        };
+    }
+
     let echartOption = {
         title: {
             text: chartTitle,
             padding: [10, 10, 0, 0],
         },
-        /* legend: {
-            orient: 'horizontal',
-            padding: [50, 0, 0, 50],
-            data: dataTitles
-        }, */
+        legend: legendset,
         toolbox: {
             show : true,
             feature : {
@@ -68,19 +119,11 @@ function createChartOptions(mainTitle, dataTitles, seriesType) {
                 saveAsImage : {show: true}
             }
         },
-        tooltip: {
-            trigger: 'axis'
-        },
-        dataZoom: [
-            {
-                type: 'slider',
-                filterMode: "filter",
-                realTime: true
-            }
-        ], 
+        tooltip: tooltipset,
+        dataZoom: zoomset, 
         grid: {
             left: '3%',
-            right: '3%',
+            right: '5%',
             top: '20%',
             bottom: '13%',
             containLabel: true

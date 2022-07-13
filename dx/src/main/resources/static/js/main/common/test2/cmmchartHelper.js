@@ -9,7 +9,7 @@ let liveDataTimer = 1;  // live data호출시 동작할 timer
  * @param {*} tableName 
  * @param {*} dataKeys 
  */
-function callOutDataChart(url, tableName, dataKeys, callback) {
+function callOutDataChart(url, tableName) {
     fetch(url, {
         method: "POST",
         cache: "no-cache",
@@ -23,9 +23,8 @@ function callOutDataChart(url, tableName, dataKeys, callback) {
     }).then((res) => {
         return res.json();
     }).then((data) => {
-        dataKeys = [];
         data.forEach(element => {
-            dataKeys.push(element['COLUMN_NAME']);
+            dynamicOutDataKeys.push(element['COLUMN_NAME']);
         });
 
         // 외부 데이터 호출
@@ -38,17 +37,17 @@ function callOutDataChart(url, tableName, dataKeys, callback) {
                 [
                     createChartOptions(
                         '외부데이터',
-                        dataKeys,
-                        'line')
+                        dynamicOutDataKeys,
+                        'line',
+                        true,
+                        false)
                 ],  // echartOptionArr
-                [dataKeys],   // dataKeysArr
+                [dynamicOutDataKeys],   // dataKeysArr
                 6,  // dataPer
                 [10800], // categories
                 1,  // xAxisVal
                 10800  // shiftCnt
-            )
-
-        return dataKeys;
+            );
     });
 }
 
