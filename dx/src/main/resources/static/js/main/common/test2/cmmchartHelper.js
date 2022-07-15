@@ -24,7 +24,12 @@ function callOutDataChart(url, tableName) {
         return res.json();
     }).then((data) => {
         data.forEach(element => {
-            dynamicOutDataKeys.push(element['COLUMN_NAME']);
+            if (element['COLUMN_NAME'] !== 'Seq'
+                && element['COLUMN_NAME'] !== 'UID'
+                && element['COLUMN_NAME'] !== 'TIME'
+                && element['COLUMN_NAME'] !== 'TIMER') {
+                dynamicOutDataKeys.push(element['COLUMN_NAME']);
+            }
         });
 
         // 외부 데이터 호출
@@ -32,7 +37,7 @@ function callOutDataChart(url, tableName) {
                 'echarts',  // chartType
                 outDataURL, //url
                 ['chart3'], //divIdArr
-                'CWREF_21012_220705213643',    // tableName
+                tableName,    // tableName
                 [], //echartArr
                 [
                     createChartOptions(
@@ -40,7 +45,7 @@ function callOutDataChart(url, tableName) {
                         dynamicOutDataKeys,
                         'line',
                         true,
-                        false)
+                        true)
                 ],  // echartOptionArr
                 [dynamicOutDataKeys],   // dataKeysArr
                 6,  // dataPer

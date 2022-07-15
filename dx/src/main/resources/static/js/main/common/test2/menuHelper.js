@@ -64,7 +64,7 @@ function clickedMenu(menuId) {
             'echarts',  // chartType
             soundLiveDataURL, //url
             ['chart1', 'chart2-1', 'chart2-2'], //divIdArr
-            'NVT28',    // tableName
+            'CWREF_22013_220712090735',    // tableName
             [], //echartArr
             [
                 createChartOptions(
@@ -98,7 +98,7 @@ function clickedMenu(menuId) {
             'echarts',  // chartType
             inDataURL, //url
             ['chart3'], //divIdArr
-            'CWREF_21011_20227618496',    // tableName
+            'CWREF_22011_220712090735',    // tableName
             [], //echartArr
             [
                 createChartOptions(
@@ -123,7 +123,7 @@ function clickedMenu(menuId) {
         // 외부 데이터 호출
         callOutDataChart(
             getTableColumnsURL,
-            'CWREF_21012_220705213643'
+            'CWREF_22012_220712090735'
         );
 
         // 내부 데이터
@@ -131,7 +131,7 @@ function clickedMenu(menuId) {
             'echarts',  // chartType
             inDataURL, //url
             ['chart1'], //divIdArr
-            'CWREF_21011_20227618496',    // tableName
+            'CWREF_22011_220712090735',    // tableName
             [], //echartArr
             [
                 createChartOptions(
