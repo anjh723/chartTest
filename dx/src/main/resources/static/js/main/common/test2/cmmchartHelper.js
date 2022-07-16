@@ -49,9 +49,9 @@ function callOutDataChart(url, tableName) {
                 ],  // echartOptionArr
                 [dynamicOutDataKeys],   // dataKeysArr
                 6,  // dataPer
-                [10800], // categories
+                [10800] , // categories
                 1,  // xAxisVal
-                10800  // shiftCnt
+                10800/6  // shiftCnt
             );
     });
 }
@@ -129,8 +129,14 @@ function callRealTimeDataAndDrawChart(chartType, url, divIdArr, tableName, echar
 
                 // x축 이동
                 if (shift) {
-                    echartOptionArr[i].xAxis.data.shift();
-                    echartOptionArr[i].xAxis.data.push(xAxisVal.toString());
+                    let lastXAxisVal = parseInt(echartOptionArr[i].xAxis.data[echartOptionArr[i].xAxis.data.length - 1]); // x축의 마지막 값
+                    let dif = xAxisVal - lastXAxisVal;
+
+                    // 1단위로 x축 조정
+                    for (let j = 0; j < dif; j++) { 
+                        echartOptionArr[i].xAxis.data.shift();
+                        echartOptionArr[i].xAxis.data.push((lastXAxisVal + j + 1).toString());
+                    } 
                 } 
             }
             
