@@ -26,8 +26,11 @@ function callOutDataChart(url, tableName) {
         data.forEach(element => {
             if (element['COLUMN_NAME'] !== 'Seq'
                 && element['COLUMN_NAME'] !== 'UID'
-                && element['COLUMN_NAME'] !== 'TIME'
-                && element['COLUMN_NAME'] !== 'TIMER') {
+                && element['COLUMN_NAME'] !== 'uid'
+                && element['COLUMN_NAME'] !== 'Time'
+                && element['COLUMN_NAME'] !== 'Timer'
+                && !element['COLUMN_NAME'].includes('전력')) {
+                console.log('element : ' + element['COLUMN_NAME']);
                 dynamicOutDataKeys.push(element['COLUMN_NAME']);
             }
         });
